@@ -66,5 +66,57 @@ flowchart LR
 
 ---
 
-## 4. LICENSE
+## 4. REAL-WORLD USE CASES [ANYTHING PLAYBOOK — ULTRACAVE]
+
+### CASE 1 :: ABANDONWARE ARM PHONE / TABLET / SBC -> MAINLINE LINUX (`itaca`)
+- **Problem**: EoL ARMv7/AArch64 device stuck on ancient vendor kernel (Linux 3.4/3.10/4.4) or obsolete Android; vendor dropped support.
+- **Pipeline**:
+  1. `inspect_firmware_regions` -> `extract_firmware` (`boot.img`, `vendor.img`, `dtbo.img`, `super.img`).
+  2. Extract `/sys/firmware/fdt` or `boot.img` DTB -> `dtc -I dtb -O dts -o board.dts`.
+  3. `open_binary` on vendor `*.ko` & `hardware/*.so` -> `list_strings`, `batch_decompile`, `inspect_native_data_type` -> recover MMIO base addresses, `GIC` interrupts, `pinctrl` states, `regmap` sequences, PMIC voltage rails, MIPI-DSI panel timings.
+  4. `list_adb_devices` -> `pull_adb_file` (`/proc/iomem`, `/proc/interrupts`, `/sys/kernel/debug/clk/clk_summary`, `/sys/kernel/debug/gpio`).
+  5. `build_reconstruction_obligation_ledger` -> synthesize clean mainline `.dts`/`.dtsi`, U-Boot defconfig, `postmarketOS` APKBUILD or `LineageOS` device tree -> `verify_reconstruction`.
+
+### CASE 2 :: ORPHANED USB / SERIAL PERIPHERAL -> USER-SPACE DRIVER (`ogigia` + `eolia`)
+- **Problem**: Scientific instrument, scanner, audio interface, or industrial controller only has 32-bit Windows XP/7 `.sys` driver; hardware works, OS blocks unsigned/legacy kernel driver.
+- **Pipeline**:
+  1. `open_binary` on legacy `.sys`/`.dll` -> `list_procedures`, `find_xrefs_to_name` (`IoCallDriver`, `UsbBuildInterruptOrBulkTransferRequest`, `DeviceIoControl`).
+  2. `procedure_pseudo_code` + `inspect_native_data_type` -> extract USB control transfers (`bmRequestType`, `bRequest`, `wValue`, `wIndex`), bulk endpoints, and command/response struct layouts.
+  3. `decode_signal_recording` on USB/UART/SPI/I2C logic capture -> cross-check initialization handshake and timing invariants.
+  4. Synthesize zero-kernel-dependency portable driver in `Rust` (`rusb`/`hidapi`), `C` (`libusb-1.0`), or `TypeScript` (`WebUSB`/`WebHID`) -> validate via `compare_process_captures`.
+
+### CASE 3 :: LOST-SOURCE NATIVE DAEMON -> MEMORY-SAFE RUST / GO (`ea` + `proteo`)
+- **Problem**: Critical first-party `ELF`/`PE`/`Mach-O` service or CLI tool has no surviving source repo; needs security hardening, ARM64 port, or bug fix.
+- **Pipeline**:
+  1. `open_binary`(`provider_id:"ghidra"|"ida"|"hopper"`) -> `binary_overview`, `get_call_graph`, `list_procedures`.
+  2. `batch_decompile` + `inspect_native_data_type` + `inspect_native_dispatch_metadata` -> recover structs, enums, vtables, state machines, and lookup tables (`read_bytes`).
+  3. Resolve indirect calls/unknowns via `record_unknown` -> `instrument_with_frida` / `start_gdb_session` -> `correlate_static_and_runtime` -> `update_unknown`.
+  4. Translate into idiomatic `Rust`/`Go`/`C23`, compile (`caveman shrink -- cargo test`), and prove 1:1 parity via `compare_functions` + `verify_reconstruction`.
+
+### CASE 4 :: LEGACY DESKTOP / SAAS APP -> CLEAN-ROOM RE-ARCHITECTURE (`outis` -> `atena` -> `ermes` -> `penelope`)
+- **Problem**: Legacy bloated desktop/Electron/.NET/native suite needs a 100% original, high-performance modern replacement with zero IP contamination.
+- **Pipeline**:
+  1. **`outis` (`Stage_0`)**: `capture_process_scenario` / `capture_browser_scenario` + `inspect_sqlite_database`(`schema_scope:"database"`) + `inspect_web_network_capture` (`HAR`).
+  2. **`atena` (`Stage_A`)**: Extract hidden domain invariants (contextual edge-case branches, exact decimal rounding/reconciliation rules, state-cleanup paths, legacy bugs tagged `DO_NOT_REPLICATE`) -> `build_reconstruction_obligation_ledger`.
+  3. **`ermes` (`Stage_M`)**: Strip all proprietary symbols/code -> emit formal mathematical `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`).
+  4. **`penelope` (`Stage_B`)**: Consume **only** `CLEAN_SPEC.md` -> weave clean modern codebase + property-based test suite -> verify `100%` ledger coverage via `evaluate_reconstruction_coverage`.
+
+### CASE 5 :: EMBEDDED ROUTER / IOT APPLIANCE & LAN FIREWALL PROFILING (`itaca` + `eolia`)
+- **Problem**: Constrained embedded router/appliance (e.g., 16 MB Flash / 128 MB RAM MIPS/ARM) needs custom OpenWrt firmware, RAM-backed DNS sinkhole, VPN client tunnel, and deterministic LAN device egress firewall rules.
+- **Pipeline**:
+  1. `inspect_firmware_regions` -> `extract_firmware` -> verify flash partition layout (`u-boot`, `factory` RF calibration, `firmware` SquashFS) and hardware offload path (`flow_offloading_hw`).
+  2. `inspect_pcap_capture` -> `inspect_packet_fields` on appliance/LAN device traffic -> map exact DNS queries, SNI/endpoints, L4 ports, and keepalive intervals.
+  3. Synthesize declarative `UCI` / `nftables` (`fw4`) configuration, tmpfs-backed `dnsmasq` blocklists, and `wireguard` policy routing -> verify zero flash wear and deterministic packet forwarding.
+
+### CASE 6 :: MOBILE & CROSS-PLATFORM APP INTEROPERABILITY (`scheria`)
+- **Problem**: Orphaned Android (`APK`/`DEX`/`Flutter`), iOS (`Mach-O`/`Swift`), or `.NET` client needs API/bridge recovery to keep working with self-hosted backend or modern OS.
+- **Pipeline**:
+  1. `project_android_application_graph` / `project_apple_application_graph` / `project_managed_application_graph`.
+  2. `decompile_jeb_item` / `inspect_dart_aot` / `analyze_swift_types` / `inspect_managed_native_boundaries` -> map JNI/FFI/P-Invoke contracts, certificate pinning config, protobuf/JSON payloads, and local encrypted storage schemas.
+  3. Build compatible self-hosted server or modernized client -> verify via `compare_artifacts` and `verify_reconstruction`.
+
+---
+
+## 5. LICENSE
 MIT © [mich-de](https://github.com/mich-de)
+
