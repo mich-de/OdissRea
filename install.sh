@@ -10,6 +10,7 @@ SKILLS=(
   "ermes"
   "penelope"
   "proteo"
+  "itaca"
   "t-800"
   "eritrea"
 )
