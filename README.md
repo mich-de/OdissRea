@@ -2,6 +2,7 @@
 
 > `FORMAT`: `ultracave` (high-density technical specification).
 > `ENGINE`: [REA (Reverse Engineer Anything)](https://github.com/morluto/rea) — 207 MCP tools across Native, Managed, Mobile, Web/Electron, WASM/EVM, Firmware, Databases, and Network Protocols.
+> `OPERATIONS MANUAL`: [MANUAL.md](MANUAL.md) — Digital Repair, Abandonware & The Anythink Principle in Caveman Ultra.
 
 ---
 
