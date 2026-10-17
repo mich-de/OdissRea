@@ -22,6 +22,11 @@ description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal.
 | **Stage M** | **[`ermes`](../ermes/SKILL.md)** | Sedona WG12 Specification Monitor: normalizes `Stage_A` findings into `CLEAN_SPEC.md` + `AUDIT_LOG` (`ev_...`) with `0%` proprietary code expression. |
 | **Stage B** | **[`penelope`](../penelope/SKILL.md)** | Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to weave and test 100% original modern software. |
 | **Multi-Engine** | **[`proteo`](../proteo/SKILL.md)** | Engine adaptation (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
+| **Hardware / BSP** | **[`itaca`](../itaca/SKILL.md)** | Legacy ARM, Mobile, SBC & PC Hardware Preservation (DTB/DTS, `.ko`/HAL interoperability, mainline Linux/postmarketOS/LineageOS). |
+| **Transmutation** | **[`ea`](../ea/SKILL.md)** | First-Party Source Recovery & Cross-Language Translation (C/C++/ASM -> `Rust`/`Go`/`C23`/`TS`). |
+| **Legacy Rescue** | **[`ogigia`](../ogigia/SKILL.md)** | Orphaned Software, SQLite Schema, Crash Dump & User-Space Driver (`libusb`/`hidapi`) Rescue. |
+| **Protocols & Buses** | **[`eolia`](../eolia/SKILL.md)** | Network (`PCAP`/`HAR`/`SAZ`/`qlog`) & Hardware Signal (`UART`/`SPI`/`I2C`/`USB`) Interoperability. |
+| **App Modernization** | **[`scheria`](../scheria/SKILL.md)** | Mobile (`Android`/`Flutter`/`Apple`), Managed (`.NET`), and `Electron`/`Web`/`WASM` Modernization. |
 
 ---
 
