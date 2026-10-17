@@ -1,31 +1,41 @@
 ---
 name: odissrea
-description: Master Odyssey Orchestrator for the REA toolset and OpenWrt embedded modernization. Coordinates staged Clean-Room workflows (Atena -> Ermes -> Penelope -> Proteo) and iterative verification.
+description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal. Coordinates staged Clean-Room & Legacy Modernization workflows (Outis / Atena -> Ermes -> Penelope + Proteo) across any native, managed, mobile, web, firmware, or protocol target.
 ---
 
-# ODISSREA — Staged Clean-Room & Embedded Modernization Orchestrator
+# ODISSREA :: UNIVERSAL ORCHESTRATOR & `/goal` VERIFICATION ENGINE [ULTRACAVE]
 
-## 1. Overview
-- **Role**: Systems Architect & Staged Workflow Coordinator.
-- **Compliance**: EU Dir. 2009/24/EC Art. 1(2), 5(1), 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10 & *Top System* C-13/20; Sedona Conference WG12 Clean-Room Standard.
-- **Objective**: Coordinate multi-stage system analysis, specification extraction, and clean-room implementation across desktop, web, and embedded OpenWrt targets.
+## 0. ROLE & COMPLIANCE
+- `IDENTITY`: **Odysseus (*Polytropos*)** :: Universal Systems Orchestrator & `/goal` Convergence Coordinator across all **207 REA MCP tools**.
+- `STANDARDS`: EU Dir. 2009/24/EC Art. 1(2), 5(1) [*Top System* C-13/20], 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10; 17 U.S.C. § 1201(f) & § 107; Sedona Conference WG12 Clean-Room Standard.
+- `TOKEN_DISCIPLINE`: Always request `detail:"summary"` first -> page via `inspect_analysis_view` / `get_evidence_bundle`. Wrap verbose builds/tests in `caveman shrink -- <cmd>`.
 
 ---
 
-## 2. Staged Architecture
+## 1. THE ODISSREA PANTHEON [STAGE ROUTING]
 
-| Stage | Skill | Responsibility |
+| Stage | Skill | Universal Responsibility |
 |---|---|---|
-| **Control** | [`odissrea`](../odissrea/SKILL.md) | Requirement decomposition, tool selection, and verification checks. |
-| **Stage 0** | [`outis`](../outis/SKILL.md) | External interface & protocol observation (HTTP/API, SQLite schemas, CLI I/O). |
-| **Stage A** | [`atena`](../atena/SKILL.md) | Artifact & firmware inventory (`inspect_firmware_regions`, `inspect_artifact`, `inspect_binary_layout`). |
-| **Stage M** | [`ermes`](../ermes/SKILL.md) | Specification normalization gate: produces `CLEAN_SPEC.md` + Evidence Audit Log (`ev_...`) with zero proprietary code. |
-| **Stage B** | [`penelope`](../penelope/SKILL.md) | Clean-room implementation from `CLEAN_SPEC.md` (Rust, Go, C, Python, OpenWrt UCI/`nftables`). |
-| **Support** | [`proteo`](../proteo/SKILL.md) | Multi-engine compatibility (`Ghidra`, `IDA`, `Hopper`, `Rizin`) and user-space driver design (`libusb`, `hidapi`). |
+| **Control** | **[`odissrea`](../odissrea/SKILL.md)** | Target classification, subagent orchestration (`invoke_subagent`), and `/goal` parity verification. |
+| **Stage 0** | **[`outis`](../outis/SKILL.md)** | Pure Black-Box Behavioral & Protocol Observation (HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, bus signals). |
+| **Stage A** | **[`atena`](../atena/SKILL.md)** | Precision REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, schemas & obligation ledgers. |
+| **Stage M** | **[`ermes`](../ermes/SKILL.md)** | Sedona WG12 Specification Monitor: normalizes `Stage_A` findings into `CLEAN_SPEC.md` + `AUDIT_LOG` (`ev_...`) with `0%` proprietary code expression. |
+| **Stage B** | **[`penelope`](../penelope/SKILL.md)** | Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to weave and test 100% original modern software. |
+| **Multi-Engine** | **[`proteo`](../proteo/SKILL.md)** | Engine adaptation (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
 
 ---
 
-## 3. Iterative Verification Workflow
-1. **Inventory & Spec (`Stage A` -> `Stage M`)**: Inspect target metadata, partition layout, and package inventory; emit `CLEAN_SPEC.md`.
-2. **Implementation (`Stage B`)**: Generate clean configurations, scripts, or source code within hardware/flash/RAM budgets.
-3. **Validation**: Build and verify against `evaluate_reconstruction_coverage` and `verify_reconstruction`, iterating until all specification checks pass.
+## 2. UNIVERSAL TARGET ROUTING [ANYTHING -> REA]
+- **Archives / Packages / Resources**: `open_binary` -> `inspect_artifact`(`detail:"summary"`), `inspect_pe_resources`, `inspect_plist`, `inspect_keyed_archive`, `inspect_asset_catalog`.
+- **Native ELF / PE / Mach-O / Go / Rust / Swift / ObjC**: `inspect_binary_layout`, `inspect_go_binary`, `inspect_rust_binary`, `analyze_swift_types`, `get_objc_classes`, `binary_overview`.
+- **.NET / Android / Flutter / Harmony**: `inspect_managed_artifact`, `inspect_android_package`, `identify_flutter_build`, `inspect_dart_aot`, `project_android_application_graph`, `project_harmony_application_graph`.
+- **Web / Electron / JS / WASM / EVM**: `analyze_javascript_application`(`detail:"summary"`), `inspect_electron_fuses`, `analyze_web_bundle`, `inspect_wasm_artifact`, `inspect_evm_interface`(`detail:"summary"`).
+- **Firmware / Hardware Signals / Databases / Network**: `inspect_firmware_regions`->`extract_firmware`, `decode_signal_recording`, `inspect_sqlite_database`(`schema_scope:"database"`), `inspect_web_network_capture`, `inspect_pcap_capture`, `inspect_packet_capture`.
+
+---
+
+## 3. CONTINUOUS `/goal` CONVERGENCE LOOP
+1. **Discover (`Stage_0` / `Stage_A`)**: Route target to `outis` / `atena` (or `proteo` for first-party source recovery); lock requirements via `build_reconstruction_obligation_ledger`.
+2. **Normalize (`Stage_M`)**: Filter through `ermes` -> emit `CLEAN_SPEC.md` + `AUDIT_LOG`.
+3. **Synthesize (`Stage_B`)**: Build clean implementation via `penelope` + full automated test suite (`caveman shrink -- <cmd>`).
+4. **Verify**: Validate via `evaluate_reconstruction_coverage`, `verify_reconstruction`, and `compare_process_captures`; iterate until `coverage == 100%` and `unknowns == 0` -> `close_binary`.
