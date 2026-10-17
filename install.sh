@@ -11,6 +11,10 @@ SKILLS=(
   "penelope"
   "proteo"
   "itaca"
+  "ea"
+  "ogigia"
+  "eolia"
+  "scheria"
   "t-800"
   "eritrea"
 )
