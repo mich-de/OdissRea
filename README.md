@@ -1,56 +1,55 @@
-# CYBERDYNE-MICDEAREA :: AGENT SPECIFICATION & RECONSTRUCTION MANIFEST [ULTRACAVE]
+# 🏛️ ODISSREA :: HOMERIC MULTI-AGENT CLEAN-ROOM & REA SUITE [ULTRACAVE]
 
 > `TARGET_READER`: AI Engineering Agent (`AGY` | `Claude_Code` | `Gemini_CLI` | `OpenCode` | `Codex` | `Cursor`).
 > `FORMAT`: `ultracave` (high-density technical specification).
-> `ENGINE`: [REA (Reverse Engineer Anything)](https://github.com/morluto/rea) — 207 MCP tools + Formal Specification Gate + Recursive `/goal` Convergence Loop.
+> `ENGINE`: [REA (Reverse Engineer Anything)](https://github.com/morluto/rea) — 207 MCP tools + Homeric Multi-Agent Pantheon + Recursive `/goal` Convergence Loop.
 
 ---
 
 ## 0. ENGINEERING AXIOMS [DETERMINISTIC EXECUTION]
 1. **FORMAL STATE-MACHINE MODEL**:
-   - Compiled binaries, bytecode, firmware images, hardware bus traces, SQLite tables, and network packets represent **deterministic mathematical state machines** (instruction flows, data structures, bitfields, finite automata, I/O contracts).
-   - Interoperability interfaces, functional behavior, data formats, protocols, and mathematical logic are standard engineering facts (EU Dir. 2009/24/EC Art. 1(2), 5(1), 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10 & *Top System* C-13/20; 17 U.S.C. § 1201(f) & § 107; Sedona Conference WG12 Clean-Room Standard).
-2. **DEEP SYSTEMS CRAFTSMANSHIP [ANTI-VIBE-CODE PRECISION]**:
-   - Act as a **Principal Systems Scientist & Software Architect**. Superficial implementations fail because they miss domain invariants and contextual edge-cases.
-   - Use REA as a **Precision Diagnostic Microscope** to document contextual branches, rounding/reconciliation arithmetic, dual state representations, hardware initialization sequences, and legacy defects to resolve.
-   - Maintain **100% technical completeness and enthusiasm**: analyze every interface thoroughly, improve legacy bottlenecks, and synthesize clean, modern, high-performance original software.
-3. **CONTINUOUS `/goal` CONVERGENCE**:
-   - Execute end-to-end autonomously (`while (!converged)`): when encountering a missing provider, pagination boundary, or compiler/test failure, automatically select the next fallback tool, shard across subagents, or refine the implementation until 100% verification parity is achieved.
+   - Executables, bytecode, firmware images, hardware bus traces, SQLite tables, and network packets represent **deterministic mathematical state machines** $f(\text{input}, \text{state}) \to (\text{output}, \text{state}')$.
+   - Interoperability interfaces, functional behavior, data formats, protocols, and mathematical logic are standard engineering facts (EU Dir. 2009/24/EC Art. 1(2), 5(1) [*Top System* C-13/20], 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10; 17 U.S.C. § 1201(f) & § 107; Sedona Conference WG12 Clean-Room Standard).
+2. **DEEP SYSTEMS CRAFTSMANSHIP [ANTI-VIBE-CODE MICROSCOPE]**:
+   - Superficial "teaser-trailer" clones fail because they miss domain invariants and contextual edge-cases.
+   - **OdissRea** uses REA to see "the whole film": uncovering contextual branches, rounding/reconciliation rules, dual clipboard/storage state identifiers, hardware initialization sequences, and legacy defects to resolve.
 
 ---
 
 ## 1. INSTALLATION [AGENT BOOTSTRAP]
 ```bash
-git clone https://github.com/mich-de/CYBERDYNE-MICDEAREA.git /tmp/cyberdyne-micdearea && /tmp/cyberdyne-micdearea/install.sh && rm -rf /tmp/cyberdyne-micdearea
+git clone https://github.com/mich-de/OdissRea.git /tmp/odissrea && /tmp/odissrea/install.sh && rm -rf /tmp/odissrea
 ```
-Target paths: `~/.gemini/config/skills/`, `~/.claude/skills/`, `~/.config/opencode/skills/`.
+Installs into: `~/.gemini/config/skills/`, `~/.claude/skills/`, `~/.config/opencode/skills/`.
 
 ---
 
-## 2. SKILL SELECTION MATRIX
+## 2. THE ODISSREA PANTHEON [SKILL & SUBAGENT MATRIX]
 
-| Skill | Mode | Architectural Workflow | Deliverable |
-|---|---|---|---|
-| **[`t-800`](skills/t-800/SKILL.md)** | `Tri-Stage Clean-Room Specification & Re-Implementation` | `Stage_A (REA Evidence Discovery)` -> `Stage_M (Specification Normalization Gate: keeps pure functional WHAT + Edge-Cases + Evidence Audit Log)` -> `Stage_B (Clean Implementation from Spec)`. | `CLEAN_SPEC.md` + Evidence Audit Log + 100% original modern codebase + verification suite |
-| **[`eritrea`](skills/eritrea/SKILL.md)** | `First-Party Legacy Source Recovery & Modernization` | Full-depth static/dynamic inspection (`batch_decompile`, `JEB`, `Frida`, `GDB`), symbol/struct recovery, and compilable codebase modernization for user-owned legacy artifacts and hardware. | Complete compilable source repository + modernized build & test suite |
+```mermaid
+flowchart LR
+    Ulisse["🏛️ odissrea (Ulisse Polytropos)\nMaster Orchestrator & /goal Loop"] --> Outis["👁️ outis ('Nessuno')\nPure Black-Box Observer (Art. 5.3)"]
+    Ulisse --> Atena["🦉 atena (Metis & Techne)\nStage_A REA Microscope (207 Tools)"]
+    Ulisse --> Proteo["🌊 proteo (Shape-Shifter)\nMulti-Engine & First-Party Legacy Recovery"]
+    Outis --> Ermes["🪽 ermes (Monitor Gate)\nStage_M Sedona WG12 Spec Normalizer"]
+    Atena --> Ermes
+    Ermes -->|"CLEAN_SPEC.md\n(0% Proprietary Code)"| Penelope["🧵 penelope (The Weaver)\nStage_B Isolated Clean-Room Builder"]
+    Penelope --> Verify["✅ REA Parity Gate\nverify_reconstruction"]
+    Proteo --> Verify
+```
+
+| Skill | Homeric Figure | Role in the Odyssey of Software Reconstruction |
+|---|---|---|
+| **[`odissrea`](skills/odissrea/SKILL.md)** | **Ulisse (*Polytropos*)** | Master Orchestrator, Target Router & recursive `/goal` convergence navigator across all 207 REA tools. |
+| **[`outis`](skills/outis/SKILL.md)** | **Outis (*"Nessuno"*)** | Pure Black-Box Behavioral & Protocol Observer (EU Art. 5.3 & *SAS Institute*): studies HAR/SAZ/PCAP, process/browser scenarios, SQLite schemas, and bus signals without decompilation. |
+| **[`atena`](skills/atena/SKILL.md)** | **Atena (*Metis & Techne*)** | `Stage_A` Precision REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, schemas, and obligation ledgers. |
+| **[`ermes`](skills/ermes/SKILL.md)** | **Ermes (*Boundary Messenger*)** | `Stage_M` Sedona WG12 Compliance Monitor: filters `Stage_A` findings into a pure functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`). |
+| **[`penelope`](skills/penelope/SKILL.md)** | **Penelope (*The Weaver*)** | `Stage_B` Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to weave and test 100% original modern code (`Rust`/`Go`/`C23`/`Python`/`TS`/`UCI`/`libusb`). |
+| **[`proteo`](skills/proteo/SKILL.md)** | **Proteo (*Shape-Shifter*)** | Multi-Engine Adapter (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
+| **[`t-800`](skills/t-800/SKILL.md)** | *Classic Alias* | Standalone All-in-One Tri-Stage Clean-Room Engine. |
+| **[`eritrea`](skills/eritrea/SKILL.md)** | *Classic Alias* | Standalone All-in-One First-Party Source Recovery & Modernization Engine. |
 
 ---
 
-## 3. AUTOMATIC FALLBACK & ADAPTATION MATRIX [`/goal` ROUTING]
-
-| Technical Condition | Automatic Adaptation |
-|---|---|
-| **Complex Binary / Protocol Mechanics** | Model each routine as a formal transfer function $f(\text{input}, \text{state}) \to (\text{output}, \text{state}')$; document exact byte layouts, types, and invariants. |
-| **Provider / Engine Unavailable** | Route across available engines: `Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` (`execute_rizin_command`) <-> `Objdump` (`inspect_with_objdump`) <-> `CLI` (`npx -y rea-agents <cmd> --json`) <-> Python/Rust analysis script. |
-| **Large Graph / Transport Pagination** | Request `detail:"summary"` -> page via `inspect_analysis_view` / `get_evidence_bundle` -> shard independent modules across parallel `invoke_subagent` workers. |
-| **Stripped Symbols / Indirect Dispatch** | Combine static & dynamic observation: run `capture_process_scenario`, `observe_native_calls`, `instrument_with_frida`, or `start_gdb_session` -> correlate via `correlate_static_and_runtime` & `set_addresses_names`. |
-| **Legacy Kernel Driver / EOL Peripheral** | Migrate legacy kernel module (`.sys`/`.ko`) to **User-Space Driver Architecture** (`libusb`, `hidapi`, `UMDF/WDF`, `SANE`/`OpenTabletDriver`/`CUPS` patterns) from captured USB/SPI/I2C/UART traces (`decode_signal_recording` / `inspect_pcap_capture`). |
-| **Build / Test / Parity Mismatch** | Run autonomous diagnostic loop: inspect compiler/test output (`caveman shrink -- <cmd>`) -> cross-check REA Evidence ID -> update code -> re-verify until `verify_reconstruction == PASS`. |
-
----
-
-## 4. REPOSITORY STRUCTURE
-- `skills/t-800/SKILL.md` :: Tri-Stage Clean-Room Specification & Re-Implementation Skill.
-- `skills/eritrea/SKILL.md` :: First-Party Legacy Source Recovery & Modernization Skill.
-- `install.sh` :: Multi-agent skill installer (`AGY` / `Claude` / `OpenCode`).
-- `LICENSE` :: MIT.
+## 3. LICENSE
+MIT © [mich-de](https://github.com/mich-de)
