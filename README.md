@@ -9,7 +9,7 @@
 ## 0. OPERATIONAL CONTEXT: ABANDONMENT, PRACTICAL HACKING & THE ANYTHINK PRINCIPLE
 
 ### A. THE ABANDONMENT CRISIS
-- **Definition**: Devices, firmware, and software where the original vendor terminated official support.
+- **Definition**: Devices, firmware, and software where original vendor terminated official support.
 - **Consequences**: Zero security updates, arbitrary cloud shutdowns, artificial hardware bricking, escalating electronic waste (e-waste).
 - **Remedy**: Independent technical repair, reverse engineering, and clean-room firmware reconstruction. Essential for industrial infrastructure continuity, digital sovereignty, and ecological sustainability.
 
@@ -25,7 +25,7 @@
 
 ### C. THE "ANYTHINK" PRINCIPLE (UNIVERSAL INTEROPERABILITY ETHOS)
 - **Meaning**: "Whatever you think / need to make it work".
-- **Rule**: Not bound to a single vendor, OS, or architecture. An open, universal problem-solving ethos: if hardware exists and physics permits, software can be adapted, repaired, and liberated.
+- **Rule**: Not bound to single vendor, OS, or architecture. Open, universal problem-solving ethos: if hardware exists and physics permits, software can be adapted, repaired, and liberated.
 
 ---
 
@@ -90,7 +90,7 @@ flowchart TD
 | **[`odissrea`](skills/odissrea/SKILL.md)** | **Odysseus (*Polytropos*)** | Master Orchestrator, universal target router across all 207 REA tools, and iterative `/goal` verification coordinator. |
 | **[`outis`](skills/outis/SKILL.md)** | **Outis (*External Observer*)** | `Stage_0` Black-Box Behavioral & Protocol Analyst: inspects HTTP/HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, and logic signals without decompilation. |
 | **[`atena`](skills/atena/SKILL.md)** | **Athena (*Metis & Techne*)** | `Stage_A` REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, data schemas, and formal obligation ledgers (`build_reconstruction_obligation_ledger`). |
-| **[`ermes`](skills/ermes/SKILL.md)** | **Hermes (*Boundary Monitor*)** | `Stage_M` Sedona WG12 Specification Gate: normalizes `Stage_A` findings into a pure functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`) with zero proprietary code expression. |
+| **[`ermes`](skills/ermes/SKILL.md)** | **Hermes (*Boundary Monitor*)** | `Stage_M` Sedona WG12 Specification Gate: normalizes `Stage_A` findings into pure functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`) with zero proprietary code expression. |
 | **[`penelope`](skills/penelope/SKILL.md)** | **Penelope (*The Weaver*)** | `Stage_B` Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to architect and test 100% original code (`Rust`, `Go`, `C23`, `Zig`, `Python`, `TS`, `Swift`, `Kotlin`, `UCI`, `libusb`). |
 | **[`proteo`](skills/proteo/SKILL.md)** | **Proteus (*Multi-Engine*)** | Multi-Engine Adapter (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
 | **[`itaca`](skills/itaca/SKILL.md)** | **Ithaca (*Homeland Hardware*)** | Legacy ARM, Mobile, SBC & PC Hardware Preservation: DTB/DTS reconstruction, vendor `.ko`/HAL interoperability, and mainline Linux/postmarketOS/LineageOS porting. |
@@ -182,7 +182,35 @@ flowchart LR
 
 ---
 
-## 5. REAL-WORLD MISSIONS & USE CASES [ANYTHING PLAYBOOK — ULTRACAVE]
+## 5. THE CAVEMAN WORKBENCH [ESSENTIAL BOM & LAB SETUP]
+
+Bill of Materials for modern digital repair lab. Buy cheap, buy twice. Buy quality, buy once.
+
+- **Vision & Magnification**: Stereo microscope (AmScope / Trinocular), digital USB microscope, adjustable LED ring light.
+- **Probing & Logic**: Saleae Logic Pro 16 / DSLogic Plus, Rigol DS1054Z oscilloscope, digital multimeter with audible continuity buzzer.
+- **Solder & Rework**: Hakko FX-888D soldering station, 858D hot-air rework station, Chip Quik low-temp removal alloy, tacky flux gel, Kapton high-temperature tape, 99.9% isopropyl alcohol (IPA).
+- **Programmers & Adapters**:
+  - **CH341A** (with **1.8V adapter module** — CRITICAL for modern 1.8V NAND/NOR flash).
+  - **FT232H / FT2232H** breakout boards (high-speed UART/SPI/JTAG/Bitbang).
+  - **J-Link / ST-Link V2 / Raspberry Pi** (for OpenOCD SWD/JTAG).
+  - **CANable / PCAN-USB** (for automotive/industrial CAN-Bus).
+  - **HackRF One / Yard Stick One** (for Sub-GHz / RF analysis).
+- **Software Stack**: Linux host (Debian/Ubuntu/Parrot/Kali), `flashrom`, `binwalk`, `Ghidra`, `QEMU`, `Renode`, `Wireshark`, `PlatformIO`, REA MCP server.
+
+---
+
+## 6. ANYTHINK FIELD DIRECTIVES [CAVEMAN ULTRA SURVIVAL GUIDE]
+
+- **Rule 1: Trust No Silicon.** Assume every pin is debug. Probe everything. Multimeter && logic analyzer are primary weapons.
+- **Rule 2: Cloud is Lie.** Local control > Vendor cloud. If cloud dead == device dead. Cut cord. Build local bridge.
+- **Rule 3: Binary is Truth.** Marketing lies. Code doesn't. Strings dump reveals secrets. Entropy map reveals crypto.
+- **Rule 4: Emulate Before Flash.** Bricked hardware == sad caveman. QEMU/Renode first. HIL second. Flash last.
+- **Rule 5: Clean-Room is Shield.** Copying code == copyright risk. Copying functional logic == freedom. `ermes` spec -> `penelope` build. Zero IP contamination.
+- **Rule 6: Right to Repair is Law.** EU Directive 2009/24/EC && US DMCA 1201(f) are shields. Wield them. Document everything.
+
+---
+
+## 7. REAL-WORLD MISSIONS & ACTION QUESTS [THE 20 ANYTHINK CASE STUDIES]
 
 ### MISSION 1: MIKROTIK mAP2n ROUTER — RESTORE SSH ON ABANDONED BOX
 - **PROBLEM**: Abandoned router. Vendor firmware obsolete. Wi-Fi dead. No SSH access.
@@ -234,7 +262,7 @@ flowchart LR
   3. Extract AES encryption key and session handshake from native library (`libtracker.so`).
   4. Write standalone Python daemon with `bleak` to emulate mobile app BLE handshake.
   5. Decrypt binary GATT notifications. Parse heart rate, step count, and sleep frames.
-  6. Forward decoded metrics directly to local Home Assistant / InfluxDB instance.
+  6 forward decoded metrics directly to local Home Assistant / InfluxDB instance.
 - **RESULT**: Device liberated from defunct cloud. Works 100% locally with zero data leakage.
 
 ### MISSION 5: SMART HOME LIGHT BULB — LOCAL OTA & SECURITY HARDENING
@@ -301,16 +329,112 @@ flowchart LR
   3. Build compatible self-hosted server or modernized client -> verify via `compare_artifacts` and `verify_reconstruction`.
 - **RESULT**: Full client/server interoperability maintained without relying on defunct cloud backends.
 
+### MISSION 12: AUTOMOTIVE CAN-BUS INFOTAINMENT / ECU — LIBERATE FROM DEALER LOCK
+- **PROBLEM**: EoL vehicle head unit. Map updates discontinued. Dealer demands $2k replacement. Component Protection (CP) locks aftermarket parts.
+- **ACTION**:
+  1. Tap CAN-H / CAN-L on OBD-II. Sniff with SavvyCAN / PCAN.
+  2. `eolia` -> `decode_signal_recording` -> isolate UDS (ISO 14229) diagnostic sessions.
+  3. Identify Security Access (Service 0x27) seed/key algorithm via ECU firmware dump.
+  4. `atena` + `proteo` -> decompile `SecurityAccess.dll` / native ECU binary. Extract crypto primitive (custom XOR/LFSR or AES-CMAC).
+  5. Write Python/CANable script to unlock ECU.
+  6. Read/write EEPROM via K-Line or SPI. Patch CP bytes.
+  7. Inject open-source nav stack (Navit / OsmAnd) via Android Automotive root access or custom Linux payload.
+- **RESULT**: Head unit unlocked. Free map updates. Aftermarket parts coded. Zero dealer dependency.
+
+### MISSION 13: LEGACY MEDICAL IMAGING WORKSTATION (DICOM) — BYPASS EXPIRED LICENSE
+- **PROBLEM**: High-end ultrasound / MRI console. Vendor bankrupt. Software license dongle (HASP/Aladdin) dead. Machine bricks on boot.
+- **ACTION**:
+  1. Boot live Linux. Mount internal SATA DOM (Disk-on-Module).
+  2. `ogigia` -> extract HASP driver `.sys` / `.so`.
+  3. `proteo` -> load dongle API wrapper into Ghidra. Map `HASP_API` calls (`hasp_login`, `hasp_read`).
+  4. Emulate dongle via `frida` intercepting `libhasp.so` -> return hardcoded valid feature bits && expiry `0xFFFFFFFF`.
+  5. Synthesize virtual USB HASP emulator (`usbip` + custom descriptor) matching original VID/PID.
+  6. Patch DICOM routing config -> point to modern open-source PACS (Orthanc / dcm4chee).
+- **RESULT**: $100k medical hardware saved. DICOM pipeline restored. Patient data accessible via modern web UI.
+
+### MISSION 14: PROSUMER DRONE / GIMBAL — BYPASS GEO-FENCING & PROPRIETARY TELEMETRY
+- **PROBLEM**: Drone firmware hardcoded NFZ (No-Fly Zones). Vendor cloud dead. Telemetry locked to proprietary app.
+- **ACTION**:
+  1. Extract firmware via STM32 SWD / JTAG or DFU mode.
+  2. `atena` -> map NFZ database structures (SQLite or binary packed polygons).
+  3. `ea` -> decompile flight controller binary (ARM Cortex-M4). Locate GPS coordinate check (`check_nfz_bounds`).
+  4. Patch assembly: force branch `B 0x0` || `MOV R0, #0` -> always return "outside NFZ".
+  5. `eolia` -> sniff MAVLink / proprietary RF link between RC && drone.
+  6. Write custom Python decoder for telemetry stream. Pipe to QGroundControl / Mission Planner.
+- **RESULT**: Hardware flight limits liberated. Local telemetry control established. Anythink achieved.
+
+### MISSION 15: PROPRIETARY NAS / SAN APPLIANCE — RESCUE RAID METADATA & BYPASS VENDOR LOCK
+- **PROBLEM**: Enterprise NAS chassis. Motherboard dead. Vendor demands $10k proprietary replacement. Drives contain critical data in custom RAID layout.
+- **ACTION**:
+  1. Pull SATA/SAS drives. Connect to standard Linux rig via HBA.
+  2. `outis` -> `inspect_firmware_regions` on drive headers. Identify custom metadata signatures (LSI MegaRAID, Synology SHR, QNAP mdadm).
+  3. Map chunk size, stripe order, parity scheme.
+  4. Reconstruct array using standard `mdadm` || `dmsetup` with custom mapping tables.
+  5. Mount Btrfs/ZFS/Ext4 volumes.
+  6. Extract vendor OS image from USB DOM. `itaca` -> compile generic Linux kernel with vendor's proprietary `.ko` for backplane LED/buzzer control.
+  7. Flash generic TrueNAS / Unraid to standard ITX board. Re-seat drives.
+- **RESULT**: $10k hardware cost avoided. 100% data recovered. NAS runs on commodity hardware.
+
+### MISSION 16: RETRO ARCADE / PINBALL MACHINE — FPGA & ROM PRESERVATION
+- **PROBLEM**: Custom 90s arcade PCB || solid-state pinball CPU. EPROMs rotting (bit rot). ASICs failing. No schematics.
+- **ACTION**:
+  1. Desolder UV-EPROMs / masked ROMs. Read via TL866II+ programmer.
+  2. Dump custom ASICs / GALs / PALs using logic analyzer + custom stimulus rig.
+  3. `eolia` -> reverse engineer GAL equations from truth tables.
+  4. Write Verilog/VHDL behavioral models. Synthesize to modern FPGA (Lattice iCE40 / Xilinx Spartan).
+  5. Design drop-in interposer PCB -> adapt 5V legacy logic to 3.3V FPGA I/O.
+  6. Archive dumps to MAME / PinMAME project.
+- **RESULT**: Silicon decay halted. Hardware preserved indefinitely in silicon && code.
+
+### MISSION 17: SMART GRID / UTILITY METER — LOCAL READOUT & TELEMETRY SPOOFING
+- **PROBLEM**: Utility meter uses proprietary RF mesh (Zigbee Smart Energy, LoRaWAN) or PLC. Vendor API locked. Data held hostage.
+- **ACTION**:
+  1. Sniff RF with HackRF One / Yard Stick One. Decode O-QPSK / LoRa PHY layer.
+  2. Reverse MAC layer payload structure.
+  3. Extract AES-128-CCM network keys from gateway firmware dump or installation configuration.
+  4. Write local Python MQTT bridge to decrypt and parse payload.
+  5. Pipe metrics to local Grafana dashboard.
+- **RESULT**: Real-time power/water/gas consumption on local LAN. Zero cloud dependency. Privacy restored.
+
+### MISSION 18: MODERN LAPTOP UEFI/BIOS — INTEL ME / AMD PSP NEUTRALIZATION & WHITELIST BYPASS
+- **PROBLEM**: UEFI locks out custom Wi-Fi cards (WLAN whitelist). Intel ME / AMD PSP acts as black-box rootkit with out-of-band network access.
+- **ACTION**:
+  1. Dump SPI BIOS via hardware flasher (SOIC-8 clip).
+  2. Use `UEFITool` to map firmware volumes.
+  3. Run `me_cleaner` to neutralize ME / set HAP (High Assurance Platform) bit. Disable AMD PSP modules.
+  4. Extract ACPI tables (DSDT/SSDT). Decompile to DSL. Patch out Wi-Fi whitelist checks (remove `_WAK` / `_PTS` validation routines). Recompile to AML.
+  5. Inject patched ACPI back into BIOS image. Flash via hardware programmer.
+- **RESULT**: Full hardware sovereignty. Subverted black-box CPU. Unlocked hardware expansion slots.
+
+### MISSION 19: PROPRIETARY 3D PRINTER / CNC MOTHERBOARD — KLIPPER FIRMWARE PORT
+- **PROBLEM**: Vendor locks down STM32 / LPC MCU with encrypted bootloader. Proprietary motion control limits speed and quality.
+- **ACTION**:
+  1. Dump MCU flash via SWD (ST-Link V2). Analyze vector table.
+  2. Find bootloader entry point. Patch out signature check or locate mass storage boot pin.
+  3. Compile open-source Klipper firmware for specific MCU architecture.
+  4. Flash via custom DFU payload or hardware SWD programmer.
+  5. Wire up Raspberry Pi host. Map stepper pins and thermistors.
+- **RESULT**: Sub-millisecond motion control. Web UI (Mainsail/Fluidd). Vendor lock destroyed. Print speeds doubled.
+
+### MISSION 20: VINTAGE SYNTHESIZER / DRUM MACHINE — MIDI RETROFIT & SAMPLE INJECTION
+- **PROBLEM**: 80s analog/digital hybrid synth. No MIDI. Dead floppy drive for sample loading. Unobtainium parts.
+- **ACTION**:
+  1. Tap internal data bus / DAC inputs with logic analyzer. Map memory addresses for sample RAM.
+  2. Design Raspberry Pi Pico (RP2040) USB-MIDI to parallel bus interposer PCB.
+  3. Write PIO (Programmable I/O) assembly to match vintage bus timing constraints.
+  4. Emulate floppy controller via `HxC` firmware / Gotek clone or inject samples directly into SRAM via interposer.
+- **RESULT**: Vintage analog warmth + modern digital control. Anythink bridged across decades. Hardware saved from landfill.
+
 ---
 
-## 6. ADVANCED STRATEGIES & OPERATIONAL IMPACT MAPPING
+## 8. ADVANCED STRATEGIES & OPERATIONAL IMPACT MAPPING
 
 1. **Mapping Findings to Operational Impact**:
    - Technical finding: *"Unprotected UART pads exposed on PCB"* -> Operational impact: *"Direct U-Boot access obtained; zero-soldering firmware extraction enabled."*
    - Technical finding: *"Hardcoded AES key inside JNI shared library"* -> Operational impact: *"Local BLE communication liberated; cloud server dependency terminated."*
    - Technical finding: *"Device Tree defines MMIO addresses for undocumented display controller"* -> Operational impact: *"Mainline DRM/KMS driver ported; modern Linux display server functional."*
 2. **Clean-Room Enforcement**:
-   - Never paste decompiled assembly or proprietary C pseudo-code directly into a production repository.
+   - Never paste decompiled assembly or proprietary C pseudo-code directly into production repository.
    - Filter all reverse engineering evidence through `ermes` (`Stage_M`) to produce formal mathematical specifications (`CLEAN_SPEC.md`).
    - Implement only from `CLEAN_SPEC.md` via `penelope` (`Stage_B`).
 3. **The Autonomous `/goal` Loop**:
@@ -320,5 +444,61 @@ flowchart LR
 
 ---
 
-## 7. LICENSE
+## 9. CAVE TROUBLESHOOTING [FAQ & RECOVERY PROTOCOLS]
+
+When silicon fights back, adapt and overcome. Standard operating procedures for common hardware/software roadblocks:
+
+- **SYMPTOM**: `flashrom` fails with `Read/Write timeout` or `Chip not found`.
+  - **CAUSE**: Bus contention. Main MCU holding SPI `MISO`/`MOSI` lines low/high.
+  - **FIX**: Lift `WP#` / `HOLD#` pins with 3.3V pull-up resistors. Use `flashrom --ignore-safety`. If fail: desolder chip completely (hot-air 350°C).
+- **SYMPTOM**: UART terminal spits gibberish (garbage characters / squares).
+  - **CAUSE**: Wrong baud rate, swapped TX/RX, or inverted logic.
+  - **FIX**: Swap TX/RX wires. Try standard rates (`9600`, `38400`, `57600`, `115200`). Hook logic analyzer to measure bit-width (`1 / bit-width = baud`). Check for inverted serial (common in Broadcom/MediaTek routers); invert signal via transistor or adapter.
+- **SYMPTOM**: Bootloop after custom firmware flash.
+  - **CAUSE**: Bad checksum, missing MAC/calibration partition, or wrong endianness in kernel header.
+  - **FIX**: Interrupt bootloader. Re-flash `factory` / `art` / `eeprom` calibration partitions. Verify `mkimage` headers (magic numbers). Check if bootloader requires specific RSA signature.
+- **SYMPTOM**: Firmware entirely encrypted (`binwalk -E` shows 99% high entropy everywhere).
+  - **CAUSE**: Vendor uses AES-CBC/RSA for payload encryption.
+  - **FIX**: Find decryption routine in bootloader (U-Boot) or RAM. Dump RAM via JTAG/UART. Extract key from memory. Patch bootloader assembly to skip signature check or dump decrypted payload from RAM post-boot.
+- **SYMPTOM**: JTAG/SWD connection fails (`OpenOCD` halts).
+  - **CAUSE**: Debug port disabled in eFuses, or low-power sleep mode locking MCU.
+  - **FIX**: Hold reset button while connecting. Supply external clock signal. Use `connect_assert_srst`. If eFuses blown: hardware debug is dead; pivot to peripheral bus sniffing (SPI/I2C).
+
+---
+
+## 10. FORGING NEW SKILLS [CONTRIBUTOR PROTOCOL]
+
+OdissRea is modular. You find new target class? You build new agent.
+
+1. **DEFINE DOMAIN**: What is target? (e.g., `Automotive ECU`, `Smart Grid Meter`, `Spacecraft Avionics`).
+2. **MAP TO REA**: Which of 207 MCP tools apply? (e.g., `inspect_packet_capture`, `decode_signal_recording`, `procedure_pseudo_code`).
+3. **WRITE `SKILL.md`**: Use standard template.
+   - `GOAL`: One sentence outcome.
+   - `PREREQUISITES`: Hardware/Software needed.
+   - `EXECUTION_STEPS`: Telegraphic, numbered actions.
+   - `EXPECTED_OUTPUT`: Artifacts generated.
+4. **REGISTER IN PANTHEON**: Add to `odissrea` router logic. Assign Greek/Odyssey archetype if applicable. Submit PR.
+
+---
+
+## 11. THE ODISSREA MANIFESTO
+
+We do not accept "End of Life".  
+We do not accept "Cloud Only".  
+We do not accept "Planned Obsolescence".  
+
+Silicon does not age. Logic does not rot. Only artificial barriers decay.  
+When the vendor walks away, the hardware becomes ours.  
+When the server shuts down, the protocol becomes ours.  
+
+**OdissRea** is not just a tool. It is the crowbar for the digital age.  
+Use it to pry open the black boxes.  
+Use it to reclaim your property.  
+Use it to build the bridge they refused to build.  
+
+**Anythink. Anytime. Anywhere.**
+
+---
+
+## 12. LICENSE
 MIT © [mich-de](https://github.com/mich-de)
