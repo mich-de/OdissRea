@@ -1,12 +1,12 @@
 ---
-name: leanrea
+name: telemaco
 description: Zero-MCP fast path for the OdissRea pantheon. Reverse engineer shipped software with plain local CLI tools (no REA server) — Electron/JS bundles, native ELF/PE/Mach-O, Go/Rust/.NET/Flutter/WASM, APKs, SQLite, pcaps, firmware, websites. Default first move; escalate to the REA MCP lands (atena/proteo/eritrea) only when a CLI path is insufficient.
 ---
 
-# LEANREA :: ZERO-MCP FAST PATH [ULTRACAVE]
+# TELEMACO :: ZERO-MCP FAST PATH [ULTRACAVE]
 
 ## 0. ROLE & WHEN TO USE
-- `IDENTITY`: **Leanrea** :: the pantheon's cheapest entry point. Same job the 207 REA tools do, with Bash and tools the agent already has. No MCP server, no tool-definition tax.
+- `IDENTITY`: **Telemaco (*Telemachus*)** :: the scouting first journey (*Telemachy*) that goes ahead of the master's full odyssey. The pantheon's cheapest entry point — same job the 207 REA tools do, with Bash and tools the agent already has. No MCP server, no tool-definition tax.
 - `RULE OF ESCALATION`: Try the CLI path **first**. Reach for the REA MCP lands only on a real gap: no local tool + no `brew`/`apt` install allowed, decompiler-grade pseudocode needed, live multi-engine dynamic correlation, or a 100%-parity reconstruction gate. Document why before escalating.
 - `COMPLIANCE`: Same basis as the pantheon — EU Dir. 2009/24/EC Art. 5(1)/5(3)/6; CJEU *SAS Institute* C-406/10; 17 U.S.C. § 1201(f) & § 107. First-party / lawful-acquirer / interoperability only.
 - `WHY`: On a side-by-side benchmark the lean path hit the same accuracy as the full REA MCP at ~38% less wall time, ~35% lower cost, ~56% fewer turns, ~60% fewer tokens. Turns cost more than bytes.

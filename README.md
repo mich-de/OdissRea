@@ -49,7 +49,7 @@
 ```mermaid
 flowchart TD
     Ulisse["🏛️ odissrea (Odysseus)\nMaster Target Router & /goal Verification"]
-    Lean["⚡ leanrea\nZero-MCP CLI Fast Path (default first move)"]
+    Lean["⚡ telemaco (Telemachus)\nZero-MCP CLI Fast Path (default first move)"]
     Ulisse --> Lean
     
     subgraph Stage0["Stage 0 :: Black-Box External Observation"]
@@ -90,7 +90,7 @@ flowchart TD
 | Skill | Classical Archetype | Universal Engineering Scope |
 |---|---|---|
 | **[`odissrea`](skills/odissrea/SKILL.md)** | **Odysseus (*Polytropos*)** | Master Orchestrator, universal target router across all 207 REA tools, and iterative `/goal` verification coordinator. |
-| **[`leanrea`](skills/leanrea/SKILL.md)** | *Zero-MCP Fast Path* | Default first move: plain Bash/CLI tools (`file`, `readelf`/`otool`, `nm`, `strings`, `jq`, `rg -uu`, `go version -m`, `sqlite3`, `tshark`, `binwalk`) route and inventory any target in 2-4 turns. Escalates to the MCP lands only on a real gap. Distilled from [leanrea](https://github.com/aicodeking/leanrea) (MIT), adapted to Linux-native tooling. |
+| **[`telemaco`](skills/telemaco/SKILL.md)** | **Telemachus (*The Telemachy*)** | Default first move: the scouting journey ahead of the full odyssey. Plain Bash/CLI tools (`file`, `readelf`/`otool`, `nm`, `strings`, `jq`, `rg -uu`, `go version -m`, `sqlite3`, `tshark`, `binwalk`) route and inventory any target in 2-4 turns. Escalates to the MCP lands only on a real gap. Distilled from [leanrea](https://github.com/aicodeking/leanrea) (MIT), adapted to Linux-native tooling. |
 | **[`outis`](skills/outis/SKILL.md)** | **Outis (*External Observer*)** | `Stage_0` Black-Box Behavioral & Protocol Analyst: inspects HTTP/HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, and logic signals without decompilation. |
 | **[`atena`](skills/atena/SKILL.md)** | **Athena (*Metis & Techne*)** | `Stage_A` REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, data schemas, and formal obligation ledgers (`build_reconstruction_obligation_ledger`). |
 | **[`ermes`](skills/ermes/SKILL.md)** | **Hermes (*Boundary Monitor*)** | `Stage_M` Sedona WG12 Specification Gate: normalizes `Stage_A` findings into pure functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`) with zero proprietary code expression. |
