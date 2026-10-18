@@ -17,6 +17,7 @@ description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal.
 | Stage | Skill | Universal Responsibility |
 |---|---|---|
 | **Control** | **[`odissrea`](../odissrea/SKILL.md)** | Target classification, subagent orchestration (`invoke_subagent`), and `/goal` parity verification. |
+| **Fast Path** | **[`leanrea`](../leanrea/SKILL.md)** | Zero-MCP CLI first move: plain Bash tools route+inventory any target in 2-4 turns. Default entry point; escalate to the MCP lands only on a real gap. |
 | **Stage 0** | **[`outis`](../outis/SKILL.md)** | Pure Black-Box Behavioral & Protocol Observation (HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, bus signals). |
 | **Stage A** | **[`atena`](../atena/SKILL.md)** | Precision REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, schemas & obligation ledgers. |
 | **Stage M** | **[`ermes`](../ermes/SKILL.md)** | Sedona WG12 Specification Monitor: normalizes `Stage_A` findings into `CLEAN_SPEC.md` + `AUDIT_LOG` (`ev_...`) with `0%` proprietary code expression. |
@@ -31,6 +32,7 @@ description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal.
 ---
 
 ## 2. UNIVERSAL TARGET ROUTING [ANYTHING -> REA]
+- **LEAN-FIRST GATE**: Before binding any MCP tool, route the target through **[`leanrea`](../leanrea/SKILL.md)**. Plain CLI (`file`, `readelf`/`otool`, `nm`, `strings`, `jq`, `rg -uu`, `go version -m`, `sqlite3`, `tshark`, `binwalk`) answers most inventory/version/feature-trace questions in 2-4 turns at a fraction of the token and wall-time cost. Bind the REA MCP arsenal below **only** on a real gap: decompiler-grade pseudocode, live multi-engine dynamic correlation, or a 100%-parity reconstruction gate. State the gap before escalating.
 - **Archives / Packages / Resources**: `open_binary` -> `inspect_artifact`(`detail:"summary"`), `inspect_pe_resources`, `inspect_plist`, `inspect_keyed_archive`, `inspect_asset_catalog`.
 - **Native ELF / PE / Mach-O / Go / Rust / Swift / ObjC**: `inspect_binary_layout`, `inspect_go_binary`, `inspect_rust_binary`, `analyze_swift_types`, `get_objc_classes`, `binary_overview`.
 - **.NET / Android / Flutter / Harmony**: `inspect_managed_artifact`, `inspect_android_package`, `identify_flutter_build`, `inspect_dart_aot`, `project_android_application_graph`, `project_harmony_application_graph`.

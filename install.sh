@@ -5,6 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 SKILLS=(
   "odissrea"
+  "leanrea"
   "outis"
   "atena"
   "ermes"
