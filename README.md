@@ -101,8 +101,8 @@ flowchart TD
 | **[`ogigia`](skills/ogigia/SKILL.md)** | **Ogygia (*Orphaned Systems*)** | Abandonware, Database & Peripheral Rescue: recover SQLite schemas, crash dumps, proprietary archives, and synthesize user-space drivers (`libusb`/`hidapi`). |
 | **[`eolia`](skills/eolia/SKILL.md)** | **Aeolia (*Winds & Flows*)** | Network Protocol, Packet (`PCAP`/`HAR`/`SAZ`/`qlog`) & Hardware Bus Signal (`UART`/`SPI`/`I2C`/`USB`) Interoperability Analysis. |
 | **[`scheria`](skills/scheria/SKILL.md)** | **Scheria (*Phaeacian Port*)** | Mobile (`Android APK`/`DEX`/`Flutter`, `Apple IPA`/`Swift`), Managed (`.NET`), and `Electron`/`Web`/`WASM` Application Graph Modernization. |
-| **[`t-800`](skills/t-800/SKILL.md)** | *Standalone Clean-Room* | All-in-One Tri-Stage Clean-Room Specification & Modernization Engine. |
-| **[`eritrea`](skills/eritrea/SKILL.md)** | *Standalone Recovery* | All-in-One First-Party Legacy Source Recovery & Modernization Engine. |
+| **[`tiresia`](skills/tiresia/SKILL.md)** | **Tiresias (*The Seer*)** | All-in-One Tri-Stage Clean-Room Specification & Modernization Engine: reveals the complete path (Stage A→M→B) in one standalone skill. |
+| **[`demodoco`](skills/demodoco/SKILL.md)** | **Demodocus (*The Bard*)** | All-in-One First-Party Legacy Source Recovery & Modernization Engine: reconstructs and re-sings the whole lost tale (the original source) standalone. |
 
 ---
 

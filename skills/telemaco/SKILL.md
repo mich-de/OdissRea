@@ -1,6 +1,6 @@
 ---
 name: telemaco
-description: Zero-MCP fast path for the OdissRea pantheon. Reverse engineer shipped software with plain local CLI tools (no REA server) — Electron/JS bundles, native ELF/PE/Mach-O, Go/Rust/.NET/Flutter/WASM, APKs, SQLite, pcaps, firmware, websites. Default first move; escalate to the REA MCP lands (atena/proteo/eritrea) only when a CLI path is insufficient.
+description: Zero-MCP fast path for the OdissRea pantheon. Reverse engineer shipped software with plain local CLI tools (no REA server) — Electron/JS bundles, native ELF/PE/Mach-O, Go/Rust/.NET/Flutter/WASM, APKs, SQLite, pcaps, firmware, websites. Default first move; escalate to the REA MCP lands (atena/proteo/demodoco) only when a CLI path is insufficient.
 ---
 
 # TELEMACO :: ZERO-MCP FAST PATH [ULTRACAVE]
@@ -43,7 +43,7 @@ Go: `go version -m T` alone usually answers the question.
 | Web bundle / minified JS | Find `sourceMappingURL`; if map has `sourcesContent`: `jq -r '.sources[]'`; else `npx -y prettier --parser babel F > F.pretty.js` then read by line range | `scheria` |
 | Hermes / bytenode / V8 snap | Hermes magic `c6 1f bc 03`: `hermes-dec`/`hbc-decompiler`. `.jsc` bytenode: strings + runtime hooks only | `proteo` |
 | Mach-O | `lipo -info` (thin: `lipo -thin arm64`); `otool -L`; `xcrun dyld_info -exports -imports`; `nm -gU`/`nm -u`; `codesign -d --entitlements :-`; `otool -ov`; `xcrun swift-demangle --compact` | `scheria` / `atena` |
-| Native logic | `objdump -d -M intel --no-show-raw-insn T > $D/dis.txt` (or `otool -tV`). Find fn: `rg -n '<.*Name.*>:$' $D/dis.txt`. Read call/string trail, not every instruction. Pseudocode: `r2 -qc 'aaa; pdc @ sym.X' T` or Ghidra `analyzeHeadless $D p -import T -postScript DecompileAll.java -deleteProject` | `atena` / `ea` / `eritrea` |
+| Native logic | `objdump -d -M intel --no-show-raw-insn T > $D/dis.txt` (or `otool -tV`). Find fn: `rg -n '<.*Name.*>:$' $D/dis.txt`. Read call/string trail, not every instruction. Pseudocode: `r2 -qc 'aaa; pdc @ sym.X' T` or Ghidra `analyzeHeadless $D p -import T -postScript DecompileAll.java -deleteProject` | `atena` / `ea` / `demodoco` |
 | ELF / PE | `readelf -hlSW`, `readelf -dW` (NEEDED), `nm -D --defined-only`, `objdump -d -M intel`. PE: `objdump -x`, `pefile`/`wrestool`. checksec: `pwn checksec` | `ea` / `ogigia` |
 | Go (`.go.buildinfo`) | `go version -m T` → toolchain, path, mod, deps, flags in one call. No Go: `strings -a T \| rg -m1 -A200 'Go buildinf'`. Symbols survive stripping: `go tool nm T \| rg main\.` | `atena` |
 | Rust | cargo-auditable: `cargo audit bin T`, or inflate `.dep-v0`. Compiler: `strings -a T \| rg -o '/rustc/[0-9a-f]{40}' \| sort -u`. Crates: `strings -a T \| rg -o '[a-z0-9_-]+-[0-9]+\.[0-9]+\.[0-9]+/src' \| sort -u` | `ea` |
@@ -54,7 +54,7 @@ Go: `go version -m T` alone usually answers the question.
 | SQLite | Copy db + `-wal` if present. `sqlite3 'file:C?mode=ro' '.schema'`, then `SELECT * FROM t LIMIT 20` | `ogigia` / `outis` |
 | plist / nib / car | `plutil -p F`. Info.plist = bundle id, URL schemes, privacy strings. `assetutil --info Assets.car` | `ogigia` |
 | pcap / HAR | `tshark -r C -q -z conv,tcp`; `tshark -r C -T fields -e dns.qry.name -e tls.handshake.extensions_server_name -e http.request.full_uri \| sort -u`. HAR: `jq -r '.log.entries[].request \| .method+" "+.url'` | `eolia` / `outis` |
-| Firmware | `binwalk -e F` or `unblob -e X F`; `dtc -I dtb -O dts board.dtb` for device trees. Then route each extracted binary through this table | `itaca` / `eritrea` |
+| Firmware | `binwalk -e F` or `unblob -e X F`; `dtc -I dtb -O dts board.dtb` for device trees. Then route each extracted binary through this table | `itaca` / `demodoco` |
 | Hardware bus (UART/SPI/I2C/USB) | `sigrok-cli`/`pulseview` export; decode with `sigrok-cli -i cap -P uart`. USB descriptors: `lsusb -v` | `eolia` |
 | Website | `curl -sL URL` for HTML + script srcs, fetch JS, slice. Runtime: headless Chromium with network log (Playwright `page.on('request')`) or `--remote-debugging-port` | `outis` / `scheria` |
 | Running app | Linux: `gdb -p PID`, `strace`/`ltrace`, `bpftrace`, `journalctl`. Electron main: `--inspect` (if RunAsNode/inspect fuse allows). Android: `adb logcat`, `frida -U -f pkg -l hook.js` | `proteo` / `outis` |

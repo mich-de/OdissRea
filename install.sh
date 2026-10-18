@@ -16,8 +16,8 @@ SKILLS=(
   "ogigia"
   "eolia"
   "scheria"
-  "t-800"
-  "eritrea"
+  "tiresia"
+  "demodoco"
 )
 
 TARGETS=(

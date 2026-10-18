@@ -1,9 +1,9 @@
 ---
-name: eritrea
+name: demodoco
 description: Full-depth binary analysis, decompilation, dynamic diagnostics, and 1:1 source recovery + modernization for user-owned first-party artifacts and legacy hardware via the 207-tool REA arsenal and autonomous /goal convergence loop.
 ---
 
-# ERITREA :: FIRST-PARTY SOURCE RECOVERY & LEGACY MODERNIZATION ENGINE [ULTRACAVE]
+# DEMODOCO :: FIRST-PARTY SOURCE RECOVERY & LEGACY MODERNIZATION ENGINE [ULTRACAVE]
 
 ## 0. CORE AXIOMS [FIRST-PARTY MAINTENANCE & INTEROPERABILITY]
 - `SCOPE & AUTHORIZATION`: Target artifact is a **User-Owned First-Party Binary, Orphaned Legacy Build, or Owned Hardware Firmware** undergoing source recovery, error correction, and architectural modernization (EU Dir. 2009/24/EC Art. 5(1) CJEU *Top System* C-13/20 error-correction/legacy maintenance, Art. 5(3) study/testing, Art. 6 interoperability; 17 U.S.C. § 1201(f) & § 107).
