@@ -150,6 +150,78 @@ The installer merges `odissrea-cleanroom-mcp` into `~/.gemini/config/mcp_config.
 
 One small tool on one machine: Italian locale, code page 1252, NTFS. Headers, messages and some behaviors differ on purpose. Isolation was instructed, not enforced: the builder's own tests walked drive `C:` against its rules, so use a sandbox when separation matters. Larger or server-dependent software has not been tested.
 
+### How to recreate an existing program: practical guide
+You can use this for a program you have a lawful right to use. The new program reproduces behavior, not code, assets, name or branding. It does not bypass license checks or DRM, and it cannot give access to a vendor's servers.
+
+**How the analysis works**
+
+| Step | Session | Sees | Produces |
+|---|---|---|---|
+| 1. Intake | Main | Your facts, license terms | Blockers and risks from `assess_legal_posture` |
+| 2. Observation | Observer, in a disposable VM or emulator | The program running: UI, files, formats, network | Notes on external behavior |
+| 3. Specification | Main | The observer's notes | `CLEAN_SPEC.md`, public vectors, hidden tests |
+| 4. Build | **New session** | Only the spec and public vectors | The new program |
+| 5. Verification | **Separate session** | Program, spec, hidden tests | Test results, bugs, signs of copying |
+
+By default the program is not decompiled. Use one folder for the new project and a different one for hidden tests and observation notes. Prompts are in Italian: replace every `<placeholder>` with true facts, and say so when a fact is unknown.
+
+**Prompt 1, intake and plan.** Start here, in a folder for the analysis:
+```text
+Usa la skill antirez-cleanroom. Voglio ricreare da zero <programma, versione>, per uso personale.
+Copia: <licenza acquistata / gratuita> da <sito ufficiale>. Giurisdizione: UE.
+Licenza: <testo o link, oppure "non letta">.
+Uso solo queste funzioni: <funzione 1>, <funzione 2>.
+Voglio migliorare: <velocità, consumi, interfaccia...>. Stack preferito: <linguaggio, oppure "scegli tu">.
+Esegui assess_legal_posture, elenca blocchi e rischi e proponi un piano. Non iniziare finché non confermo.
+```
+
+**Prompt 2, observation:**
+```text
+Fase di osservazione: lancia un subagent che analizzi <programma> solo dall'esterno, in <VM o emulatore>,
+senza dati personali. Può usarlo e registrare interfaccia, file scritti, formati e traffico per <funzioni>.
+Non deve decompilare, leggere i byte del programma né aggirare protezioni: se servisse, si ferma e me lo chiede.
+Output: note con il comportamento, separando fatti osservati e ipotesi, senza testi copiati dai manuali.
+```
+
+**Prompt 3, specification and tests:**
+```text
+Dalle note scrivi CLEAN_SPEC.md in <cartella progetto> con scaffold_clean_spec, solo per <funzioni>, con parole
+tue e nessun testo, codice o nome interno dell'originale. Aggiungi le mie modifiche volute: <elenco>.
+Crea vettori pubblici con setup_parity_oracle e test nascosti in <altra cartella>.
+Se il programma si può eseguire in sicurezza, confronta dal vivo su input generati al momento.
+Verifica che tutti i test falliscano senza programma, poi esegui validate_boundary_hygiene.
+```
+
+**Prompt 4, build.** Open a **new** session in the project folder, not `/clear` in a session that has seen the notes:
+```text
+Implementa il programma leggendo solo CLEAN_SPEC.md e oracle/. Non usare internet, non eseguire o cercare
+<programma originale> né codice simile, non leggere altre cartelle e non modificare spec o test.
+Altri test che non puoi vedere giudicheranno il risultato. Se la spec è incompleta, fermati e dimmelo.
+```
+
+**Prompt 5, verification.** Back in the analysis session:
+```text
+Esegui vettori pubblici e test nascosti su <cartella progetto>. Verifica l'oracolo con un programma finto che
+ripete i vettori e con difetti iniettati su una copia. Poi lancia una revisione in un contesto separato per
+bug e segni di copia. Registra le fasi con record_audit_provenance e chiudi con verify_audit_chain.
+Riporta cosa non è stato testato o riprodotto.
+```
+
+**Worked example, `tree.com`.** Prompt 1 becomes:
+```text
+Usa la skill antirez-cleanroom. Voglio ricreare da zero tree.com di Windows 11, con un nome nuovo.
+Copia: inclusa nella mia licenza Windows. Giurisdizione: UE. Licenza: non letta.
+Uso: elenco cartelle con /F e /A. Voglio migliorare: exit code sugli errori e path oltre 260 caratteri.
+Esegui assess_legal_posture, elenca blocchi e rischi e proponi un piano. Non iniziare finché non confermo.
+```
+Observation ran the command on generated folders and captured raw output. The hidden test then compared the new program with the real command on random trees. See the results in the field test above.
+
+**What to expect**
+- Good fit: local tools and documented formats. Rebuild a subset of large products.
+- Features that need vendor servers need your own compatible backend, or are dropped.
+- Stop and ask a lawyer when rights are unclear or the program will be distributed or sold.
+- A separate session is instructed, not enforced, so use a sandbox when separation matters.
+
 The film *Automata* (2014) inspired the framing: a rule forbidding independent repair resembles vendor lock-in. The metaphor stops there: it does not apply to the safety limits of AI models, and it is not a legal argument.
 
 ---
