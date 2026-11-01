@@ -216,6 +216,43 @@ Esegui assess_legal_posture, elenca blocchi e rischi e proponi un piano. Non ini
 ```
 Observation ran the command on generated folders and captured raw output. The hidden test then compared the new program with the real command on random trees. See the results in the field test above.
 
+**Worked example, an archiver inspired by WinRAR.** Not yet run end to end. The result is your own archiver with its own name and design, compatible on open formats and able to read RAR files. It does not create RAR files or look like the original, and it reuses no code, icons, text or key generator. WinRAR and RAR are the property of their owners; this project is not affiliated with them.
+
+Intake:
+```text
+Usa la skill antirez-cleanroom. Voglio creare da zero un archiver per uso personale, ispirato alle funzioni
+di WinRAR <versione>, con nome e grafica propri. Copia: <licenza acquistata / trial> da win-rar.com.
+Giurisdizione: UE. Licenza: <testo o link, oppure "non letta">.
+Uso solo: creare ed estrarre ZIP e 7z, estrarre RAR, test archivi, menu contestuale.
+Voglio migliorare: multi-thread su Windows ARM64, interfaccia essenziale.
+Esegui assess_legal_posture, elenca blocchi e rischi, compresa la licenza di UnRAR, e proponi un piano.
+Non iniziare finché non confermo.
+```
+
+Observation:
+```text
+Lancia un subagent che osservi WinRAR dall'esterno, in una VM senza dati personali: flussi d'uso, opzioni che uso,
+messaggi di stato, comportamento su archivi corrotti. Non deve decompilare, leggere i byte del programma,
+copiare testi o grafica, né toccare licenza e attivazione. Se servisse, si ferma e me lo chiede.
+Output: note sul comportamento, separando fatti osservati e ipotesi.
+```
+
+Specification and tests:
+```text
+Dalle note scrivi CLEAN_SPEC.md con parole tue. Formati: usa solo specifiche ZIP e 7z pubbliche.
+RAR: sola estrazione, tramite una libreria di cui hai controllato la licenza.
+Crea vettori pubblici e test nascosti in un'altra cartella. Confronta il contenuto estratto con quello
+di WinRAR su archivi generati al momento. Non puntare a un'interfaccia uguale.
+```
+
+Build, in a new session:
+```text
+Implementa leggendo solo CLEAN_SPEC.md e oracle/. Non usare internet, non eseguire WinRAR, non cercare codice
+simile e non leggere altre cartelle. Se la spec è incompleta, fermati e dimmelo.
+```
+
+Then verify with prompt 5. Check the UnRAR license text yourself before relying on any RAR library.
+
 **What to expect**
 - Good fit: local tools and documented formats. Rebuild a subset of large products.
 - Features that need vendor servers need your own compatible backend, or are dropped.
