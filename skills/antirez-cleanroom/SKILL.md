@@ -46,6 +46,9 @@ Decouple logic from hardware or legacy wrappers: memory and I/O callbacks, and c
 1. Run `setup_parity_oracle`.
 2. Fill `vectors.json` from the reference: validation suites for CPUs, captures from systems you may observe for protocols, golden tables for CLI tools.
 3. Confirm the harness fails without a candidate.
+4. Keep a second set of acceptance tests outside the builder's reach, in a folder it is told not to read. A builder that sees every vector can pass by replaying them.
+5. If the reference can be run, compare live: run reference and candidate on inputs generated at test time, such as random seeded trees, and compare raw bytes. Remove only wording you deliberately replaced.
+6. Check the fixtures themselves. Libraries can normalize data, so write hostile inputs as raw bytes and confirm them in the output file.
 
 ### Isolated construction
 Start a new context with no access to the target, Stage A notes, the internet or similar code on disk. Prefer simple data structures, few dependencies and predictable memory use.
@@ -56,7 +59,11 @@ A model can reproduce code it memorized during training. Context separation does
 1. Run the candidate against the oracle.
 2. On failure, never change a vector to match the code. If a vector is wrong, fix it against the reference.
 3. Route spec gaps through Stage M, not by showing the builder Stage A notes.
-4. After parity, compare the result with known implementations for signs of copying, in a context separate from the builder.
+4. Test the oracle before trusting a pass:
+   - run a fake candidate that replays the public vectors, which must fail;
+   - apply defects one at a time to a copy of the implementation, such as removing each check, and run all tests;
+   - for each defect that survives, add a test or state why it has no visible effect.
+5. After parity, compare the result with known implementations for signs of copying, and review for bugs, in a context separate from the builder. Report how limited this search was.
 
 ### Provenance
 Call `record_audit_provenance` at each stage, with a distinct `actor` per context and honest `materials_seen`. Run `verify_audit_chain` at each milestone, commit the log, and anchor its last hash externally. The log is self-declared supporting evidence, not legal proof.
@@ -80,7 +87,7 @@ Then run `assess_legal_posture`, usually with `purpose: substitute`.
 2. **Read metadata only:** version info, APK manifest, declared permissions, linked libraries, open-source notices. Log them in `materials_seen`.
 3. **Specify (Stage M):** write `CLEAN_SPEC.md` for the needed functions only, with `system_type` matching the program, and build vectors with `setup_parity_oracle`. Run `validate_boundary_hygiene`.
 4. **Build (Stage B):** start a new session with only the spec and vectors. Apply the user's optimizations here.
-5. **Verify:** run the oracle, then the similarity check in a separate context, then `record_audit_provenance` and `verify_audit_chain`.
+5. **Verify:** run the public oracle and the hidden tests, including a live comparison with the original where it can be run safely, test the oracle with a fake candidate and injected defects, run the similarity check and review in a separate context, then `record_audit_provenance` and `verify_audit_chain`.
 
 Treat the program as untrusted: it never runs on the host. A session that observed it does not write the implementation.
 

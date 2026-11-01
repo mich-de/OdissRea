@@ -1,7 +1,8 @@
 # Handover
 
 ## Stato
-- `D:\Odisserea`: modifiche al server MCP v3, skill, installer, README e test NON committate. I 22 test passavano all'ultima esecuzione.
+- `D:\Odisserea`: server MCP v3, skill, installer, README e test sul branch `Odissrea-cleanroom-mcp`, non ancora unito a `main`.
+- `D:\ramo-cleanroom`: collaudo reale su `tree.com` (`ramo.py`), confronto dal vivo 99/99. Oracoli privati in `D:\tree-oracle-private`.
 - `D:\arca-cleanroom`: pilota ZIP (`arca.py`), non è un repo git. L'oracolo dà 35/35, ma la revisione separata lo ha trovato aggirabile.
 
 ## Da fare: arca

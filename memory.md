@@ -15,6 +15,10 @@
 - Testi legali riscontrati: Dir. 2009/24 e 2001/29 su legislation.gov.uk (EUR-Lex blocca i download automatici), 17 U.S.C. § 1201(f) su Cornell. SAS, Top System e FTC solo da fonti secondarie. Nessuna revisione di un legale.
 - Le missioni 13, 14 e 17 del README sono state riscritte: niente emulazione del dongle, modifica delle no-fly zone o alterazione delle letture.
 
+## Collaudo reale: `tree.com` e `ramo`
+- Osservazione solo esterna, spec con testi originali, builder in un contesto separato, confronto dal vivo con l'originale su alberi casuali. Risultati in `D:\tree-cleanroom\AUDIT_LOG.jsonl`.
+- L'isolamento non è imposto: il builder ha scandito `C:\` nei propri test, contro le regole. Serve una sandbox per poterlo garantire.
+
 ## Lezioni dal pilota `arca`
 - I test di parità visibili al builder si possono aggirare: un finto programma di circa 20 righe li ha superati tutti.
 - I vettori golden creati con la libreria che usa anche il candidato possono essere normalizzati: controllare i byte reali delle fixture.
