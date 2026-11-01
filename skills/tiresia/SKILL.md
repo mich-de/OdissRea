@@ -10,11 +10,11 @@ description: Clean-Room software specification, legacy/EOL modernization, and in
 - `ENGINEERING POSTURE [ANTI-VIBE-CODE MICROSCOPE]`: Operate with deep scientific curiosity and architectural rigor. Use REA as a **Precision Diagnostic Microscope** to uncover hidden domain invariants and contextual edge-cases (e.g., context-dependent operators, dual clipboard/storage state identifiers, exact accounting/reconciliation rounding rules), document legacy defects to avoid repeating them, and build a cleaner, faster, safer system.
 - `COMPLIANCE STANDARDS [EU + US]`:
   - **EU**: Dir. 2009/24/EC Art. 1(2) [ideas/principles/interfaces], Art. 5(1) [CJEU *Top System* C-13/20: error correction & legacy maintenance], Art. 5(3) [observation/study/testing], Art. 6 [interoperability], Art. 8-9; CJEU *SAS Institute* C-406/10.
-  - **US**: 17 U.S.C. § 1201(f) [interoperability], 17 U.S.C. § 107 [*Sony v. Connectix*], Right-to-Repair Exemptions, Sedona Conference WG12 Clean-Room Standard.
-- `TRI-STAGE CLEAN-ROOM ISOLATION [SEDONA WG12]`:
+  - **US**: 17 U.S.C. § 1201(f) [interoperability], 17 U.S.C. § 107 [*Sony v. Connectix*], Right-to-Repair Exemptions. Conditions apply: not legal advice.
+- `TRI-STAGE CLEAN-ROOM ISOLATION`:
   1. **`Stage_A` (REA Evidence Discovery)**: Inspects target artifact -> extracts behavioral facts, edge-cases, data schemas, and protocol structures.
-  2. **`Stage_M` (Specification Normalization Gate)**: Filters `Stage_A` findings -> retains `0` lines of original code expression -> emits pure functional requirements (`CLEAN_SPEC.md` + timestamped Evidence Audit Log `ev_...`).
-  3. **`Stage_B` (Clean Implementation — isolated `invoke_subagent`)**: Consumes **ONLY** `CLEAN_SPEC.md` -> designs and tests a 100% original idiomatic codebase.
+  2. **`Stage_M` (Specification Normalization Gate)**: Filters `Stage_A` findings -> removes code and internal names -> emits pure functional requirements (`CLEAN_SPEC.md` + timestamped Evidence Audit Log `ev_...`).
+  3. **`Stage_B` (Clean Implementation — isolated `invoke_subagent`)**: Consumes **ONLY** `CLEAN_SPEC.md` -> designs and tests an original idiomatic codebase.
 - `TOKEN_DISCIPLINE`: Pass `detail:"summary"` first -> page via `inspect_analysis_view` / `get_evidence_bundle`. Wrap verbose builds/tests in `caveman shrink -- <cmd>`.
 
 ---

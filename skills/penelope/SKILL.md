@@ -1,6 +1,6 @@
 ---
 name: penelope
-description: Stage_B Isolated Clean-Room Weaver & Idiomatic Builder (Penelope). Consumes ONLY CLEAN_SPEC.md to architect, weave, refactor, and test 100% original high-performance modern code and user-space drivers.
+description: Stage_B Isolated Clean-Room Weaver & Idiomatic Builder (Penelope). Consumes ONLY CLEAN_SPEC.md to architect, weave, refactor, and test original high-performance modern code and user-space drivers.
 ---
 
 # PENELOPE :: STAGE_B CLEAN-ROOM WEAVER & BUILDER [ISOLATED SYNTHESIS | ULTRACAVE]
