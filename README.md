@@ -29,18 +29,21 @@
 
 ---
 
-## 1. LEGAL FOUNDATION & RIGHT TO REPAIR SAFE HARBOR
+## 1. LEGAL BACKGROUND & RIGHT TO REPAIR
+
+> Not legal advice. These rules have conditions and vary by country. Work only on devices and software you own or may use. Medical, aviation, utility metering, vehicle and other regulated systems have further rules that copyright exceptions do not touch.
 
 - **Core Axiom**: *"If you can't fix it, you don't own it."*
-- **EU Statutory Safe Harbor**:
-  - **Directive 2009/24/EC Art. 5(1)**: Error correction, reproduction, and maintenance by lawful acquirers without vendor authorization (CJEU *Top System* C-13/20).
-  - **Directive 2009/24/EC Art. 5(3)**: Right to observe, study, and test program functionality to determine underlying principles (CJEU *SAS Institute* C-406/10 — formats, protocols, and interfaces are not copyrightable).
-  - **Directive 2009/24/EC Art. 6**: Decompilation strictly permitted to achieve interoperability with independently created software.
-- **US Federal & State Law**:
-  - **17 U.S.C. § 1201(f) & § 107**: Statutory exemptions for reverse engineering for interoperability and fair-use security research.
-  - **US FTC Findings (Nixing the Fix)**: Zero empirical basis linking independent repair to compromised safety or security.
-  - **State Digital Fair Repair Acts**: Minnesota, California, New York, Colorado mandates to provide diagnostics, firmware updates, and repair tooling.
-- **Sedona Conference WG12**: Formal Clean-Room methodology ensures reconstructed software retains 0% proprietary code expression while maintaining 100% functional interoperability.
+- **EU Software Directive (2009/24/EC)**:
+  - **Art. 5(1)**: absent specific contract terms, a lawful acquirer may perform the acts necessary to use the program as intended, including error correction. CJEU *Top System* C-13/20: this can include decompilation where necessary, under any contract conditions, with the results used only to correct errors.
+  - **Art. 5(3)**: a person with a right to use a copy may observe, study or test it while performing acts they are entitled to perform. CJEU *SAS Institute* C-406/10: functionality, programming language and data file formats are not protected as such, but elements of a user manual can be.
+  - **Art. 6**: decompilation only where indispensable for the interoperability of an independently created program, by a licensee, for information not already readily available and for the necessary parts only. The results may not be used for a program substantially similar in expression.
+  - **Art. 7(1)(c) and Art. 8**: distributing means of removing program protection is sanctioned. Contract terms contrary to Art. 6 or Art. 5(2)-(3) are void, while patents, trade marks, trade secrets and contract law still apply.
+- **US Law**:
+  - **17 U.S.C. § 1201(f)**: a narrow interoperability exception, for a person with a lawfully obtained right to use the program. **§ 107**: fair use, decided case by case.
+  - **FTC, *Nixing the Fix* (2021)**: found scant evidence to support manufacturers' justifications for repair restrictions.
+  - **State repair laws**: Minnesota, California, New York and Colorado have enacted them, with scope varying by product.
+- **Clean-room process**: supporting evidence of independent creation, not a guarantee. It does not cover patents, contracts, trade marks or technical protection measures.
 
 ---
 
@@ -60,8 +63,8 @@ flowchart TD
         Atena["🦉 atena (Athena)\nDomain Invariants, Contextual Branches & Obligation Ledgers"]
     end
 
-    subgraph StageM["Stage M :: Sedona WG12 Spec Normalizer"]
-        Ermes["🪽 ermes (Hermes)\nCLEAN_SPEC.md (0% Proprietary Code) + Audit Logs"]
+    subgraph StageM["Stage M :: Spec Normalizer"]
+        Ermes["🪽 ermes (Hermes)\nCLEAN_SPEC.md + Audit Logs"]
     end
 
     subgraph StageB["Stage B :: Isolated Clean-Room Builder"]
@@ -93,8 +96,8 @@ flowchart TD
 | **[`telemaco`](skills/telemaco/SKILL.md)** | **Telemachus (*The Telemachy*)** | Default first move: the scouting journey ahead of the full odyssey. Plain Bash/CLI tools (`file`, `readelf`/`otool`, `nm`, `strings`, `jq`, `rg -uu`, `go version -m`, `sqlite3`, `tshark`, `binwalk`) route and inventory any target in 2-4 turns. Escalates to the MCP lands only on a real gap. Distilled from [leanrea](https://github.com/aicodeking/leanrea) (MIT), adapted to Linux-native tooling. |
 | **[`outis`](skills/outis/SKILL.md)** | **Outis (*External Observer*)** | `Stage_0` Black-Box Behavioral & Protocol Analyst: inspects HTTP/HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, and logic signals without decompilation. |
 | **[`atena`](skills/atena/SKILL.md)** | **Athena (*Metis & Techne*)** | `Stage_A` REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, data schemas, and formal obligation ledgers (`build_reconstruction_obligation_ledger`). |
-| **[`ermes`](skills/ermes/SKILL.md)** | **Hermes (*Boundary Monitor*)** | `Stage_M` Sedona WG12 Specification Gate: normalizes `Stage_A` findings into pure functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`) with zero proprietary code expression. |
-| **[`penelope`](skills/penelope/SKILL.md)** | **Penelope (*The Weaver*)** | `Stage_B` Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to architect and test 100% original code (`Rust`, `Go`, `C23`, `Zig`, `Python`, `TS`, `Swift`, `Kotlin`, `UCI`, `libusb`). |
+| **[`ermes`](skills/ermes/SKILL.md)** | **Hermes (*Boundary Monitor*)** | `Stage_M` Specification Gate: normalizes `Stage_A` findings into a functional `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`), keeping out code and internal names. |
+| **[`penelope`](skills/penelope/SKILL.md)** | **Penelope (*The Weaver*)** | `Stage_B` Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to architect and test original code (`Rust`, `Go`, `C23`, `Zig`, `Python`, `TS`, `Swift`, `Kotlin`, `UCI`, `libusb`). |
 | **[`proteo`](skills/proteo/SKILL.md)** | **Proteus (*Multi-Engine*)** | Multi-Engine Adapter (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
 | **[`itaca`](skills/itaca/SKILL.md)** | **Ithaca (*Homeland Hardware*)** | Legacy ARM, Mobile, SBC & PC Hardware Preservation: DTB/DTS reconstruction, vendor `.ko`/HAL interoperability, and mainline Linux/postmarketOS/LineageOS porting. |
 | **[`ea`](skills/ea/SKILL.md)** | **Aeaea (*Transmutation Island*)** | First-Party Source Recovery & Cross-Language Transmutation: decompile and translate owned C/C++/ASM binaries into modern `Rust`, `Go`, `C23`, or `TypeScript`. |
@@ -108,12 +111,21 @@ flowchart TD
 
 ## 3. INSTALLATION
 ```bash
-git clone https://github.com/mich-de/OdissRea.git /tmp/odissrea && /tmp/odissrea/install.sh && rm -rf /tmp/odissrea
+git clone https://github.com/mich-de/OdissRea.git ~/.local/share/odissrea && ~/.local/share/odissrea/install.sh
 ```
+Keep the clone: the MCP configuration points to the server inside it. On Windows, run `install_cleanroom.ps1` from the clone.
+
 Target directories automatically populated:
 - `~/.gemini/config/skills/`
 - `~/.claude/skills/`
 - `~/.config/opencode/skills/`
+
+The installer merges `odissrea-cleanroom-mcp` into `~/.gemini/config/mcp_config.json`, keeping other servers and saving a timestamped backup.
+
+### Clean-room MCP server
+`mcp/odissrea_cleanroom_server.py` and the [`antirez-cleanroom`](skills/antirez-cleanroom/SKILL.md) skill provide process tooling: a legal-posture checklist, specification templates, a decompiler-residue heuristic, a parity oracle and a hash-chained provenance log. They do not grant authorization, prove independent creation or replace legal advice. Paths are confined to `ODISSREA_WORKSPACE` (default: the server's working directory). Run the tests with `python -m unittest discover tests`.
+
+The film *Automata* (2014) inspired the framing: a rule forbidding independent repair resembles vendor lock-in. The metaphor stops there: it does not apply to the safety limits of AI models, and it is not a legal argument.
 
 ---
 
@@ -305,16 +317,16 @@ Bill of Materials for modern digital repair lab. Buy cheap, buy twice. Buy quali
   2. `batch_decompile` + `inspect_native_data_type` + `inspect_native_dispatch_metadata` -> recover structs, enums, vtables, state machines, lookup tables (`read_bytes`).
   3. Resolve indirect calls via `record_unknown` -> `instrument_with_frida` / `start_gdb_session` -> `correlate_static_and_runtime` -> `update_unknown`.
   4. Translate into idiomatic `Rust`/`Go`/`C23`, compile (`caveman shrink -- cargo test`), and prove 1:1 parity via `compare_functions` + `verify_reconstruction`.
-- **RESULT**: 100% clean, memory-safe, compilable source code recovered and verified.
+- **RESULT**: Memory-safe, compilable source code recovered and verified.
 
 ### MISSION 9: LEGACY DESKTOP / SAAS SUITE -> CLEAN-ROOM RE-ARCHITECTURE (`outis` -> `atena` -> `ermes` -> `penelope`)
-- **PROBLEM**: Bloated legacy Electron/.NET/native software suite needs a 100% original, high-performance modern replacement with zero IP contamination.
+- **PROBLEM**: Bloated legacy Electron/.NET/native software suite needs an original, high-performance modern replacement that reuses none of its code or assets.
 - **ACTION**:
   1. **`outis` (`Stage_0`)**: `capture_process_scenario` / `capture_browser_scenario` + `inspect_sqlite_database`(`schema_scope:"database"`) + `inspect_web_network_capture` (`HAR`).
   2. **`atena` (`Stage_A`)**: Extract hidden domain invariants (contextual edge-case branches, exact decimal rounding/reconciliation rules, state-cleanup paths, legacy bugs tagged `DO_NOT_REPLICATE`) -> `build_reconstruction_obligation_ledger`.
-  3. **`ermes` (`Stage_M`)**: Strip all proprietary code expression -> emit formal mathematical `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`).
+  3. **`ermes` (`Stage_M`)**: Remove code and internal names -> emit formal mathematical `CLEAN_SPEC.md` + timestamped `AUDIT_LOG` (`ev_...`).
   4. **`penelope` (`Stage_B`)**: Consume **only** `CLEAN_SPEC.md` -> weave clean modern codebase + property-based test suite -> verify `100%` ledger coverage via `evaluate_reconstruction_coverage`.
-- **RESULT**: Completely independent, high-performance clean-room software with full legal audit trail.
+- **RESULT**: Completely independent, high-performance clean-room software with a provenance log.
 
 ### MISSION 10: EMBEDDED ROUTER & LAN FIREWALL PROFILING (`itaca` + `eolia`)
 - **PROBLEM**: Constrained router (e.g. 16 MB Flash / 128 MB RAM) needs custom OpenWrt firmware, RAM-backed DNS sinkhole, VPN client tunnel, and deterministic LAN device egress firewall rules.
@@ -344,27 +356,23 @@ Bill of Materials for modern digital repair lab. Buy cheap, buy twice. Buy quali
   7. Inject open-source nav stack (Navit / OsmAnd) via Android Automotive root access or custom Linux payload.
 - **RESULT**: Head unit unlocked. Free map updates. Aftermarket parts coded. Zero dealer dependency.
 
-### MISSION 13: LEGACY MEDICAL IMAGING WORKSTATION (DICOM) — BYPASS EXPIRED LICENSE
-- **PROBLEM**: High-end ultrasound / MRI console. Vendor bankrupt. Software license dongle (HASP/Aladdin) dead. Machine bricks on boot.
+### MISSION 13: LEGACY MEDICAL IMAGING WORKSTATION (DICOM) — DATA RESCUE AFTER VENDOR LOSS
+- **PROBLEM**: High-end ultrasound / MRI console. Vendor bankrupt. Software license dongle dead. Machine no longer boots.
 - **ACTION**:
-  1. Boot live Linux. Mount internal SATA DOM (Disk-on-Module).
-  2. `ogigia` -> extract HASP driver `.sys` / `.so`.
-  3. `proteo` -> load dongle API wrapper into Ghidra. Map `HASP_API` calls (`hasp_login`, `hasp_read`).
-  4. Emulate dongle via `frida` intercepting `libhasp.so` -> return hardcoded valid feature bits && expiry `0xFFFFFFFF`.
-  5. Synthesize virtual USB HASP emulator (`usbip` + custom descriptor) matching original VID/PID.
-  6. Patch DICOM routing config -> point to modern open-source PACS (Orthanc / dcm4chee).
-- **RESULT**: $100k medical hardware saved. DICOM pipeline restored. Patient data accessible via modern web UI.
+  1. Ask the vendor's successor or receiver for a replacement license. Do not emulate or patch the license check.
+  2. Image the internal disk read-only, under the operator's data protection rules.
+  3. `ogigia` -> identify the local database and image formats in order to export studies.
+  4. Import the studies into a modern open-source PACS (Orthanc / dcm4chee).
+  5. Keep clinical use on certified equipment: changing a medical device's software can affect its regulatory status.
+- **RESULT**: Patient data accessible via a modern web UI. Replacement path planned.
 
-### MISSION 14: PROSUMER DRONE / GIMBAL — BYPASS GEO-FENCING & PROPRIETARY TELEMETRY
-- **PROBLEM**: Drone firmware hardcoded NFZ (No-Fly Zones). Vendor cloud dead. Telemetry locked to proprietary app.
+### MISSION 14: PROSUMER DRONE / GIMBAL — LOCAL TELEMETRY AFTER VENDOR CLOUD LOSS
+- **PROBLEM**: Vendor cloud dead. Telemetry locked to a proprietary app.
 - **ACTION**:
-  1. Extract firmware via STM32 SWD / JTAG or DFU mode.
-  2. `atena` -> map NFZ database structures (SQLite or binary packed polygons).
-  3. `ea` -> decompile flight controller binary (ARM Cortex-M4). Locate GPS coordinate check (`check_nfz_bounds`).
-  4. Patch assembly: force branch `B 0x0` || `MOV R0, #0` -> always return "outside NFZ".
-  5. `eolia` -> sniff MAVLink / proprietary RF link between RC && drone.
-  6. Write custom Python decoder for telemetry stream. Pipe to QGroundControl / Mission Planner.
-- **RESULT**: Hardware flight limits liberated. Local telemetry control established. Anythink achieved.
+  1. Do not alter no-fly zones or other flight limits: they are safety controls, and aviation law applies.
+  2. `eolia` -> observe the MAVLink / proprietary RF link between your own RC && drone.
+  3. Write a custom Python decoder for the telemetry stream. Pipe to QGroundControl / Mission Planner.
+- **RESULT**: Local telemetry control established. Flight limits unchanged.
 
 ### MISSION 15: PROPRIETARY NAS / SAN APPLIANCE — RESCUE RAID METADATA & BYPASS VENDOR LOCK
 - **PROBLEM**: Enterprise NAS chassis. Motherboard dead. Vendor demands $10k proprietary replacement. Drives contain critical data in custom RAID layout.
@@ -389,12 +397,12 @@ Bill of Materials for modern digital repair lab. Buy cheap, buy twice. Buy quali
   6. Archive dumps to MAME / PinMAME project.
 - **RESULT**: Silicon decay halted. Hardware preserved indefinitely in silicon && code.
 
-### MISSION 17: SMART GRID / UTILITY METER — LOCAL READOUT & TELEMETRY SPOOFING
+### MISSION 17: SMART GRID / UTILITY METER — READ-ONLY LOCAL READOUT OF YOUR OWN CONSUMPTION
 - **PROBLEM**: Utility meter uses proprietary RF mesh (Zigbee Smart Energy, LoRaWAN) or PLC. Vendor API locked. Data held hostage.
 - **ACTION**:
   1. Sniff RF with HackRF One / Yard Stick One. Decode O-QPSK / LoRa PHY layer.
   2. Reverse MAC layer payload structure.
-  3. Extract AES-128-CCM network keys from gateway firmware dump or installation configuration.
+  3. Use the network keys of your own installation, where your provider and local rules allow it. Never transmit on the mesh or alter readings.
   4. Write local Python MQTT bridge to decrypt and parse payload.
   5. Pipe metrics to local Grafana dashboard.
 - **RESULT**: Real-time power/water/gas consumption on local LAN. Zero cloud dependency. Privacy restored.

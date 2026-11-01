@@ -7,7 +7,7 @@ description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal.
 
 ## 0. ROLE & COMPLIANCE
 - `IDENTITY`: **Odysseus (*Polytropos*)** :: Universal Systems Orchestrator & `/goal` Convergence Coordinator across all **207 REA MCP tools**.
-- `STANDARDS`: EU Dir. 2009/24/EC Art. 1(2), 5(1) [*Top System* C-13/20], 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10; 17 U.S.C. § 1201(f) & § 107; Sedona Conference WG12 Clean-Room Standard.
+- `STANDARDS`: EU Dir. 2009/24/EC Art. 1(2), 5(1) [*Top System* C-13/20], 5(3), 6, 8-9; CJEU *SAS Institute* C-406/10; 17 U.S.C. § 1201(f) & § 107. Conditions apply: not legal advice.
 - `TOKEN_DISCIPLINE`: Always request `detail:"summary"` first -> page via `inspect_analysis_view` / `get_evidence_bundle`. Wrap verbose builds/tests in `caveman shrink -- <cmd>`.
 
 ---
@@ -20,8 +20,8 @@ description: Universal Master Odyssey Orchestrator for the 207-tool REA arsenal.
 | **Fast Path** | **[`telemaco`](../telemaco/SKILL.md)** | Zero-MCP CLI first move: plain Bash tools route+inventory any target in 2-4 turns. Default entry point; escalate to the MCP lands only on a real gap. |
 | **Stage 0** | **[`outis`](../outis/SKILL.md)** | Pure Black-Box Behavioral & Protocol Observation (HAR/SAZ/PCAP, CLI/UI scenarios, SQLite schemas, bus signals). |
 | **Stage A** | **[`atena`](../atena/SKILL.md)** | Precision REA Diagnostic Microscope: extracts hidden domain invariants, contextual edge-cases, schemas & obligation ledgers. |
-| **Stage M** | **[`ermes`](../ermes/SKILL.md)** | Sedona WG12 Specification Monitor: normalizes `Stage_A` findings into `CLEAN_SPEC.md` + `AUDIT_LOG` (`ev_...`) with `0%` proprietary code expression. |
-| **Stage B** | **[`penelope`](../penelope/SKILL.md)** | Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to weave and test 100% original modern software. |
+| **Stage M** | **[`ermes`](../ermes/SKILL.md)** | Specification Monitor: normalizes `Stage_A` findings into `CLEAN_SPEC.md` + `AUDIT_LOG` (`ev_...`), keeping out code and internal names. |
+| **Stage B** | **[`penelope`](../penelope/SKILL.md)** | Isolated Clean-Room Builder: consumes **only** `CLEAN_SPEC.md` to weave and test original modern software. |
 | **Multi-Engine** | **[`proteo`](../proteo/SKILL.md)** | Engine adaptation (`Ghidra` <-> `IDA` <-> `Hopper` <-> `Rizin` <-> `JEB` <-> `Frida` <-> `GDB` <-> `ADB`) & First-Party Legacy Source Recovery. |
 | **Hardware / BSP** | **[`itaca`](../itaca/SKILL.md)** | Legacy ARM, Mobile, SBC & PC Hardware Preservation (DTB/DTS, `.ko`/HAL interoperability, mainline Linux/postmarketOS/LineageOS). |
 | **Transmutation** | **[`ea`](../ea/SKILL.md)** | First-Party Source Recovery & Cross-Language Translation (C/C++/ASM -> `Rust`/`Go`/`C23`/`TS`). |
