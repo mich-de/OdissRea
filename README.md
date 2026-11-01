@@ -106,6 +106,7 @@ flowchart TD
 | **[`scheria`](skills/scheria/SKILL.md)** | **Scheria (*Phaeacian Port*)** | Mobile (`Android APK`/`DEX`/`Flutter`, `Apple IPA`/`Swift`), Managed (`.NET`), and `Electron`/`Web`/`WASM` Application Graph Modernization. |
 | **[`tiresia`](skills/tiresia/SKILL.md)** | **Tiresias (*The Seer*)** | All-in-One Tri-Stage Clean-Room Specification & Modernization Engine: reveals the complete path (Stage A→M→B) in one standalone skill. |
 | **[`demodoco`](skills/demodoco/SKILL.md)** | **Demodocus (*The Bard*)** | All-in-One First-Party Legacy Source Recovery & Modernization Engine: reconstructs and re-sings the whole lost tale (the original source) standalone. |
+| **[`antirez-cleanroom`](skills/antirez-cleanroom/SKILL.md)** | **Clean-Room Process** | Reimplementation from specifications and test oracles, with separated contexts, hidden tests and provenance logging, using the `odissrea-cleanroom-mcp` tools. Includes a path for third-party `.exe`/`.apk` targets, observed from outside. Inspired by [antirez's Z80 experiment](https://antirez.com/news/160); not affiliated with or endorsed by him. |
 
 ---
 
@@ -123,7 +124,31 @@ Target directories automatically populated:
 The installer merges `odissrea-cleanroom-mcp` into `~/.gemini/config/mcp_config.json`, keeping other servers and saving a timestamped backup.
 
 ### Clean-room MCP server
-`mcp/odissrea_cleanroom_server.py` and the [`antirez-cleanroom`](skills/antirez-cleanroom/SKILL.md) skill provide process tooling: a legal-posture checklist, specification templates, a decompiler-residue heuristic, a parity oracle and a hash-chained provenance log. They do not grant authorization, prove independent creation or replace legal advice. Paths are confined to `ODISSREA_WORKSPACE` (default: the server's working directory). Run the tests with `python -m unittest discover tests`.
+`mcp/odissrea_cleanroom_server.py` and the [`antirez-cleanroom`](skills/antirez-cleanroom/SKILL.md) skill provide process tooling. They do not grant authorization, prove independent creation or replace legal advice. Python 3.12 standard library only.
+
+| Tool | Purpose | Limit |
+|---|---|---|
+| `assess_legal_posture` | Blockers, conditions and risks for a planned reimplementation | Self-declared inputs, no clearance |
+| `scaffold_clean_spec` | Spec template by system type | Unfilled, never overwrites |
+| `validate_boundary_hygiene` | Known decompiler residue and copyright notices | Cannot detect renamed or paraphrased copying |
+| `setup_parity_oracle` | Golden vector harness | Proves only what the vectors cover; text stdin/stdout |
+| `record_audit_provenance` | Hash-chained log with a Stage B separation check | Self-declared; a full rewrite is not detected |
+| `verify_audit_chain` | Chain check and last hash | Needs an external anchor to catch a full rewrite |
+
+- **Configuration**: paths are confined to `ODISSREA_WORKSPACE` (default: the server's working directory).
+- **Tests**: `python -m unittest discover tests`.
+- **Oracle discipline**: visible test vectors can be passed by a program that only replays them. The skill also requires hidden tests, live comparison with the original where it can be run, a fake candidate that must fail, and injected defects.
+
+**Field test**: `tree.com` on Windows 11 ARM64 was observed from outside only, specified, and rebuilt in a separate context as a new program with its own wording.
+
+| Check | Result |
+|---|---|
+| Output body against the live original, on random trees unseen by the builder, plus targeted cases | 99/99 |
+| Fake candidate replaying the public examples | Stopped, 4/99 |
+| Injected defects, run before the final fixes | 25 of 26 stopped |
+| 20,400 entries, redirected output | 0.067 s against 0.160 s |
+
+One small tool on one machine: Italian locale, code page 1252, NTFS. Headers, messages and some behaviors differ on purpose. Isolation was instructed, not enforced: the builder's own tests walked drive `C:` against its rules, so use a sandbox when separation matters. Larger or server-dependent software has not been tested.
 
 The film *Automata* (2014) inspired the framing: a rule forbidding independent repair resembles vendor lock-in. The metaphor stops there: it does not apply to the safety limits of AI models, and it is not a legal argument.
 
